@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>HDFS的API操作 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="HDFS的API操作HDFS文件上传(测试参数优先级)12345678910public void CopyFromLocalFile() throws URISyntaxException, IO,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">HDFS的API操作</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">HDFS的API操作</h1>
+        <div class="stuff">
+            <span>九月 15, 2020</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/HDFS/" rel="tag">HDFS</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/hadoop/" rel="tag">hadoop</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="HDFS的API操作"><a href="#HDFS的API操作" class="headerlink" title="HDFS的API操作"></a>HDFS的API操作</h3><h5 id="HDFS文件上传-测试参数优先级"><a href="#HDFS文件上传-测试参数优先级" class="headerlink" title="HDFS文件上传(测试参数优先级)"></a>HDFS文件上传(测试参数优先级)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public void CopyFromLocalFile() throws URISyntaxException, IOException, InterruptedException &#123;</span><br><span class="line">        Configuration conf&#x3D;new Configuration();</span><br><span class="line">        &#x2F;&#x2F;获取hdfs客户端对象</span><br><span class="line">        FileSystem file&#x3D;FileSystem.get(new URI(&quot;hdfs:&#x2F;&#x2F;192.168.114.101:9000&quot;),conf,&quot;root&quot;);</span><br><span class="line">        &#x2F;&#x2F;执行上传API</span><br><span class="line">        file.copyFromLocalFile(new Path(&quot;E:\\spider_project\\Xpath&quot;),</span><br><span class="line">                new Path(&quot;&#x2F;fanfan&quot;));</span><br><span class="line">        file.close();</span><br><span class="line">        System.out.println(&quot;上传成功！&quot;);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="HDFS文件下载"><a href="#HDFS文件下载" class="headerlink" title="HDFS文件下载"></a>HDFS文件下载</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public void download() throws URISyntaxException, IOException, InterruptedException &#123;</span><br><span class="line">        Configuration conf&#x3D;new Configuration();</span><br><span class="line">        FileSystem file&#x3D;FileSystem.get(new URI(&quot;hdfs:&#x2F;&#x2F;192.168.114.101:9000&quot;),conf,&quot;root&quot;);</span><br><span class="line">        file.copyToLocalFile(false,new Path(&quot;&#x2F;zenghui&#x2F;hadoop&#x2F;test.txt&quot;),new Path(&quot;D:&#x2F;zenghui.txt&quot;),true);</span><br><span class="line">        &#x2F;&#x2F;fs.copyToLocalFile(delSrc, src, dst, useRawLocalFileSystem); </span><br><span class="line">        &#x2F;&#x2F;delSrc:代表是否删除原数据,也就相当于剪切 </span><br><span class="line">        &#x2F;&#x2F;src:要下载的文件   </span><br><span class="line">        &#x2F;&#x2F;dst:要存放的路径</span><br><span class="line">        &#x2F;&#x2F;useRawLocalFileSystem:代表是否校验,如果false&#x2F;true代表开启&#x2F;关闭,开启校验的话会 产生一个.crc的一个文件   </span><br><span class="line">        &#x2F;&#x2F;关闭资源 </span><br><span class="line">        file.close();</span><br><span class="line">        System.out.println(&quot;下载成功&quot;);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="HDFS文件夹创建-测试参数优先级"><a href="#HDFS文件夹创建-测试参数优先级" class="headerlink" title="HDFS文件夹创建(测试参数优先级)"></a>HDFS文件夹创建(测试参数优先级)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public void mkdir() throws IOException, URISyntaxException, InterruptedException &#123;</span><br><span class="line">        &#x2F;&#x2F;获取一个HDFS的抽象类对象</span><br><span class="line">        Configuration conf&#x3D;new Configuration();</span><br><span class="line">        FileSystem fileSystem &#x3D; FileSystem.get(new URI(&quot;hdfs:&#x2F;&#x2F;192.168.114.101:9000&quot;),conf,&quot;root&quot;);</span><br><span class="line">        &#x2F;&#x2F;用这个对象操作文件系统</span><br><span class="line">        fileSystem.mkdirs(new Path(&quot;&#x2F;fanfan&quot;));</span><br><span class="line">        &#x2F;&#x2F;关闭资源</span><br><span class="line">        fileSystem.close();</span><br><span class="line">        System.out.println(&quot;创建成功！&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="HDFS文件夹删除"><a href="#HDFS文件夹删除" class="headerlink" title="HDFS文件夹删除"></a>HDFS文件夹删除</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public void delete() throws URISyntaxException, IOException, InterruptedException &#123;</span><br><span class="line">        Configuration conf&#x3D;new Configuration();</span><br><span class="line">        FileSystem file&#x3D;FileSystem.get(new URI(&quot;hdfs:&#x2F;&#x2F;192.168.114.101:9000&quot;),conf,&quot;root&quot;);</span><br><span class="line">        file.delete(new Path(&quot;&#x2F;fanfan&quot;),true);</span><br><span class="line">        file.close();</span><br><span class="line">        System.out.println(&quot;删除成功！&quot;);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="HDFS文件名更改"><a href="#HDFS文件名更改" class="headerlink" title="HDFS文件名更改"></a>HDFS文件名更改</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public void rename() throws URISyntaxException, IOException, InterruptedException &#123;</span><br><span class="line">        Configuration conf&#x3D;new Configuration();</span><br><span class="line">        FileSystem file&#x3D;FileSystem.get(new URI(&quot;hdfs:&#x2F;&#x2F;192.168.114.101:9000&quot;),conf,&quot;root&quot;);</span><br><span class="line">        file.rename(new Path(&quot;&#x2F;zenghui&#x2F;hadoop&#x2F;dianying.csv&quot;),new Path(&quot;&#x2F;zenghui&#x2F;hadoop&#x2F;douban.csv&quot;));</span><br><span class="line">        file.close();</span><br><span class="line">        System.out.println(&quot;文件改名成功！&quot;);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="HDFS文件详情查看"><a href="#HDFS文件详情查看" class="headerlink" title="HDFS文件详情查看"></a>HDFS文件详情查看</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public void listfile() throws IOException, URISyntaxException, InterruptedException &#123;</span><br><span class="line">        Configuration conf&#x3D;new Configuration();</span><br><span class="line">        FileSystem fs&#x3D;FileSystem.get(new URI(&quot;hdfs:&#x2F;&#x2F;192.168.114.101:9000&quot;),conf,&quot;root&quot;);</span><br><span class="line">        RemoteIterator&lt;LocatedFileStatus&gt; RemoteIterator &#x3D; fs.listFiles(new Path(&quot;&#x2F;fanfan&quot;),true);</span><br><span class="line">        while(RemoteIterator.hasNext())&#123;</span><br><span class="line">            LocatedFileStatus next &#x3D; RemoteIterator.next();</span><br><span class="line">            System.out.println(next.getPath().getName());  &#x2F;&#x2F; 文件名称</span><br><span class="line">            System.out.println(next.getLen());      &#x2F;&#x2F;文件长度</span><br><span class="line">            System.out.println(next.getPermission());    &#x2F;&#x2F;文件权限</span><br><span class="line">            System.out.println(next.getBlockSize());   文件块大小</span><br><span class="line">            System.out.println(next.getReplication());    文件副本数</span><br><span class="line">            BlockLocation[] blockLocations &#x3D; next.getBlockLocations();   &#x2F;&#x2F;块信息</span><br><span class="line">            for (BlockLocation blockLocation:blockLocations)&#123;</span><br><span class="line">                String[] hosts &#x3D; blockLocation.getHosts();   &#x2F;&#x2F;获取块所在的主机地址</span><br><span class="line">                for (String host:hosts)&#123;</span><br><span class="line">                    System.out.println(host);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        fs.close();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="HDFS文件和文件夹判断-递归"><a href="#HDFS文件和文件夹判断-递归" class="headerlink" title="HDFS文件和文件夹判断(递归)"></a>HDFS文件和文件夹判断(递归)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public void isDir(Path path,FileSystem fs) throws IOException, URISyntaxException, InterruptedException &#123;</span><br><span class="line">        FileStatus[] fileStatuses &#x3D; fs.listStatus(path);</span><br><span class="line">        for(FileStatus fileStatu:fileStatuses)&#123;</span><br><span class="line">            if(fileStatu.isFile())&#123;</span><br><span class="line">                System.out.println(&quot;f:&quot;+fileStatu.getPath().getName());</span><br><span class="line">            &#125;else if (fileStatu.isDirectory())&#123;</span><br><span class="line">                System.out.println(&quot;d:&quot;+fileStatu.getPath().getName());</span><br><span class="line">                isDir(fileStatu.getPath(),fs);   &#x2F;&#x2F;递归访问</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">public static void main(String[] args) throws InterruptedException, IOException, URISyntaxException &#123;</span><br><span class="line">        Configuration conf&#x3D;new Configuration();</span><br><span class="line">        FileSystem fs&#x3D;FileSystem.get(new URI(&quot;hdfs:&#x2F;&#x2F;192.168.114.101:9000&quot;),conf,&quot;root&quot;);</span><br><span class="line">        Path path &#x3D; new Path(&quot;&#x2F;&quot;);</span><br><span class="line">        demo1 test&#x3D;new demo1();</span><br><span class="line">        test.isDir(path,fs);</span><br><span class="line">        fs.closeAll();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="HDFS的I-O流操作"><a href="#HDFS的I-O流操作" class="headerlink" title="HDFS的I/O流操作"></a>HDFS的I/O流操作</h4><h5 id="HDFS文件上传"><a href="#HDFS文件上传" class="headerlink" title="HDFS文件上传"></a>HDFS文件上传</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public void copyBytesToHdfs() throws IOException, URISyntaxException, InterruptedException &#123;</span><br><span class="line">        Configuration conf&#x3D;new Configuration();</span><br><span class="line">        FileSystem fs &#x3D; FileSystem.get(new URI(&quot;hdfs:&#x2F;&#x2F;192.168.114.101:9000&quot;),conf,&quot;root&quot;);</span><br><span class="line">        FileInputStream fileInputStream &#x3D; new FileInputStream(new File(&quot;E:\\spider_project\\selenium\\demo1.txt&quot;));</span><br><span class="line">        FSDataOutputStream fsDataOutputStream &#x3D; fs.create(new Path(&quot;&#x2F;xiaofanfan&#x2F;&quot;));</span><br><span class="line">        IOUtils.copyBytes(fileInputStream, fsDataOutputStream, conf);</span><br><span class="line">        IOUtils.closeStream(fileInputStream);</span><br><span class="line">        IOUtils.closeStream(fsDataOutputStream);</span><br><span class="line">        System.out.println(&quot;上传成功&quot;);</span><br><span class="line">        fs.close();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="HDFS文件下载-1"><a href="#HDFS文件下载-1" class="headerlink" title="HDFS文件下载"></a>HDFS文件下载</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public void copyBytesFromHdfs() throws IOException, URISyntaxException, InterruptedException &#123;</span><br><span class="line">        Configuration conf&#x3D;new Configuration();</span><br><span class="line">        FileSystem fs &#x3D; FileSystem.get(new URI(&quot;hdfs:&#x2F;&#x2F;192.168.114.101:9000&quot;),conf,&quot;root&quot;);</span><br><span class="line">        FSDataInputStream fis&#x3D;fs.open(new Path(&quot;&#x2F;xiaofanfan&#x2F;demo.txt&quot;));</span><br><span class="line">        FileOutputStream fio &#x3D; new FileOutputStream(new File(&quot;D\\&quot;));</span><br><span class="line">        IOUtils.copyBytes(fis,fio,conf);</span><br><span class="line">        IOUtils.closeStream(fis);</span><br><span class="line">        IOUtils.closeStream(fio);</span><br><span class="line">        fs.close();</span><br><span class="line">        System.out.println(&quot;成功&quot;);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="http://domain.com/awesome.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
