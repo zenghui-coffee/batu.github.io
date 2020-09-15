@@ -1,68 +1,105 @@
-
 <!DOCTYPE html>
-<html lang="en" class="loading">
+
+
+<html lang="en">
+
+
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Hadoop环境搭建（1） - Hexo</title>
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="google" content="notranslate" />
-    <meta name="keywords" content="Fechin,"> 
-    <meta name="description" content="三.Hadoop环境搭建Hadoop需要运⾏在Linux操作系统上，当前也可以在Windows上安装运⾏。如果在Windows上运⾏就好⽐开个⼩轿⻋去⽥地⾥耕地。鉴于⼤家已经学习过Linux操作系统,"> 
-    <meta name="author" content="John Doe"> 
-    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
-    <link rel="icon" href="/img/favicon.png"> 
+  <meta charset="utf-8" />
     
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    Hadoop环境搭建（1） |  
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+  
+  
+
+  
+
+<link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  <div id="app">
     
-<link rel="stylesheet" href="/css/diaspora.css">
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-hadoop环境搭建(一)"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  Hadoop环境搭建（1）
+</h1>
+ 
 
-	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({
-              google_ad_client: "ca-pub-8691406134231910",
-              enable_page_level_ads: true
-         });
-    </script>
-    <script async custom-element="amp-auto-ads"
-        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
-    </script>
-<meta name="generator" content="Hexo 5.1.1"></head>
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2019/09/15/hadoop%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA(%E4%B8%80)/" class="article-date">
+  <time datetime="2019-09-15T08:59:00.000Z" itemprop="datePublished">2019-09-15</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/hadoop/">hadoop</a> / <a class="article-category-link" href="/categories/hadoop/%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/">集群搭建</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">1.7k</span>
+        </span>
+    </span>
 
-<body class="loading">
-    <span id="config-title" style="display:none">Hexo</span>
-    <div id="loader"></div>
-    <div id="single">
-    <div id="top" style="display: block;">
-    <div class="bar" style="width: 0;"></div>
-    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
-    <div title="播放/暂停" class="iconfont icon-play"></div>
-    <h3 class="subtitle">Hadoop环境搭建（1）</h3>
-    <div class="social">
-        <div>
-            <div class="share">
-                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
-            </div>
-            <div id="qr"></div>
-        </div>
-    </div>
-    <div class="scrollbar"></div>
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">6 min</span>
+        </span>
+    </span>
 </div>
-
-    <div class="section">
-        <div class="article">
-    <div class='main'>
-        <h1 class="title">Hadoop环境搭建（1）</h1>
-        <div class="stuff">
-            <span>九月 15, 2019</span>
-            
-  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/hadoop/" rel="tag">hadoop</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/" rel="tag">集群搭建</a></li></ul>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
 
 
-        </div>
-        <div class="content markdown">
-            <h2 id="三-Hadoop环境搭建"><a href="#三-Hadoop环境搭建" class="headerlink" title="三.Hadoop环境搭建"></a>三.Hadoop环境搭建</h2><p>Hadoop需要运⾏在Linux操作系统上，当前也可以在Windows上安装运⾏。如果在Windows上运⾏就好⽐开个⼩轿⻋去⽥地⾥耕地。鉴于⼤家已经学习过Linux操作系统，因此⾥对其不再过多赘述，直 接进⾏Linux的安装。  </p>
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="三-Hadoop环境搭建"><a href="#三-Hadoop环境搭建" class="headerlink" title="三.Hadoop环境搭建"></a>三.Hadoop环境搭建</h2><p>Hadoop需要运⾏在Linux操作系统上，当前也可以在Windows上安装运⾏。如果在Windows上运⾏就好⽐开个⼩轿⻋去⽥地⾥耕地。鉴于⼤家已经学习过Linux操作系统，因此⾥对其不再过多赘述，直 接进⾏Linux的安装。  </p>
 <h5 id="⼏个进程说明"><a href="#⼏个进程说明" class="headerlink" title="⼏个进程说明"></a>⼏个进程说明</h5><pre><code>1.namenode
 存储⽂件的元数据，如⽂件名，⽂件⽬录结构，⽂件属性（创建时间、副本数、⽂件权限），以及每个⽂件的块列表和块所在的DataNode的列表信息等。  
 2.datanode  
@@ -120,61 +157,348 @@ export PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin</code></pre>
 <p><img src="https://pic.downk.cc/item/5e2e5e632fb38b8c3ca6994e.png"></p>
 <h6 id="⑦使刚才的设置生效"><a href="#⑦使刚才的设置生效" class="headerlink" title="⑦使刚才的设置生效"></a>⑦使刚才的设置生效</h6><p><img src="https://pic.downk.cc/item/5e2e5e932fb38b8c3ca69e24.png"></p>
 <h6 id="⑧检测是否配置成"><a href="#⑧检测是否配置成" class="headerlink" title="⑧检测是否配置成"></a>⑧检测是否配置成</h6><p><img src="https://pic.downk.cc/item/5e2e5e932fb38b8c3ca69e26.png"></p>
-<h6 id="⑨其他主机同样的操作进行即可https-hexo-io-docs-one-command-deployment-html"><a href="#⑨其他主机同样的操作进行即可https-hexo-io-docs-one-command-deployment-html" class="headerlink" title="⑨其他主机同样的操作进行即可https://hexo.io/docs/one-command-deployment.html)"></a>⑨其他主机同样的操作进行即可<a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">https://hexo.io/docs/one-command-deployment.html</a>)</h6>
-            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
-            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
-                <source type="audio/mpeg" src="http://domain.com/awesome.mp3">
-            </audio>
-            
+<h6 id="⑨其他主机同样的操作进行即可https-hexo-io-docs-one-command-deployment-html"><a href="#⑨其他主机同样的操作进行即可https-hexo-io-docs-one-command-deployment-html" class="headerlink" title="⑨其他主机同样的操作进行即可https://hexo.io/docs/one-command-deployment.html)"></a>⑨其他主机同样的操作进行即可<a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">https://hexo.io/docs/one-command-deployment.html</a>)</h6> 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          Donate
         </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2019/09/15/hadoop%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA(%E4%B8%80)/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hadoop/" rel="tag">hadoop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/" rel="tag">集群搭建</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2020/09/15/hadoop%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA-%E4%BA%8C/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            hadoop环境搭建(二)
+          
+        </div>
+      </a>
+    
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "",
+    app_key: "",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2015-2020
+        <i class="ri-heart-fill heart_icon"></i> John Doe
+      </li>
+    </ul>
+    <ul>
+      <li>
         
-    <div id='gitalk-container' class="comment link"
-		data-enable='false'
-        data-ae='false'
-        data-ci=''
-        data-cs=''
-        data-r=''
-        data-o=''
-        data-a=''
-        data-d='false'
-    >查看评论</div>
-
-
-    </div>
-    
-        <div class='side'>
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-Hadoop%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="toc-number">1.</span> <span class="toc-text">三.Hadoop环境搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%BC%8F%E4%B8%AA%E8%BF%9B%E7%A8%8B%E8%AF%B4%E6%98%8E"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">⼏个进程说明</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%A4%E7%A7%8D%E8%8A%82%E7%82%B9"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">两种节点</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-VMware%E5%AE%89%E8%A3%85"><span class="toc-number">1.1.</span> <span class="toc-text">3.1.VMware安装</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-1-VM%E4%B8%8B%E8%BD%BD"><span class="toc-number">1.1.1.</span> <span class="toc-text">3.1.1 VM下载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-2-VM%E5%BA%8F%E5%88%97%E5%8F%B7"><span class="toc-number">1.1.2.</span> <span class="toc-text">3.1.2 VM序列号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-3-VM%E5%AE%89%E8%A3%85"><span class="toc-number">1.1.3.</span> <span class="toc-text">3.1.3 VM安装</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-CentOS7%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85"><span class="toc-number">1.2.</span> <span class="toc-text">3.2 CentOS7下载与安装</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-1-CentOS%E7%9A%84%E4%B8%8B%E8%BD%BD"><span class="toc-number">1.2.1.</span> <span class="toc-text">3.2.1 CentOS的下载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-2-CentOS%E5%AE%89%E8%A3%85"><span class="toc-number">1.2.2.</span> <span class="toc-text">3.2.2 CentOS安装</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-Hadoop%E8%BF%90%E2%BE%8F%E7%8E%AF%E5%A2%83"><span class="toc-number">1.3.</span> <span class="toc-text">3.3 Hadoop运⾏环境</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E6%A8%A1%E5%BC%8F%EF%BC%88Standalone-Mode%EF%BC%89"><span class="toc-number">1.3.0.1.</span> <span class="toc-text">本地模式（Standalone Mode）</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E9%BB%98%E8%AE%A4%E6%83%85%E5%86%B5%E4%B8%8B%EF%BC%8CHadoop%E5%8D%B3%E5%A4%84%E4%BA%8E%E8%AF%A5%E6%A8%A1%E5%BC%8F%EF%BC%8C%E2%BD%A4%E4%BA%8E%E5%BC%80%E5%8F%91%E5%92%8C%E8%B0%83%E5%BC%8F%E3%80%82"><span class="toc-number">1.3.0.1.1.</span> <span class="toc-text">默认情况下，Hadoop即处于该模式，⽤于开发和调式。</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BC%AA%E5%88%86%E5%B8%83%E6%A8%A1%E5%BC%8F%EF%BC%88Pseudo-Distributed-Mode%EF%BC%89"><span class="toc-number">1.3.0.2.</span> <span class="toc-text">伪分布模式（Pseudo-Distributed Mode）</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#Hadoop%E7%9A%84%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B%E8%BF%90%E2%BE%8F%E5%9C%A8%E6%9C%AC%E6%9C%BA%E6%9C%BA%E5%99%A8%EF%BC%8C%E6%A8%A1%E6%8B%9F%E2%BC%80%E4%B8%AA%E2%BC%A9%E8%A7%84%E6%A8%A1%E7%9A%84%E9%9B%86%E7%BE%A4"><span class="toc-number">1.3.0.2.1.</span> <span class="toc-text">Hadoop的守护进程运⾏在本机机器，模拟⼀个⼩规模的集群</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%8C%E5%85%A8%E5%88%86%E5%B8%83%E5%BC%8F%EF%BC%88Cluster-Mode%EF%BC%89"><span class="toc-number">1.3.0.3.</span> <span class="toc-text">完全分布式（Cluster Mode）</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#Hadoop%E7%9A%84%E8%BF%90%E2%BE%8F%E5%9C%A8%E7%94%B1%E5%A4%9A%E5%8F%B0%E4%B8%BB%E6%9C%BA%E6%90%AD%E5%BB%BA%E7%9A%84%E9%9B%86%E7%BE%A4%E4%B8%8A%EF%BC%8C%E6%98%AF%E7%9C%9F%E6%AD%A3%E7%9A%84%E2%BD%A3%E4%BA%A7%E7%8E%AF%E5%A2%83%E3%80%82"><span class="toc-number">1.3.0.3.1.</span> <span class="toc-text">Hadoop的运⾏在由多台主机搭建的集群上，是真正的⽣产环境。</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-1-%E9%9B%86%E7%BE%A4%E8%A7%84%E5%88%92"><span class="toc-number">1.3.1.</span> <span class="toc-text">3.4.1 集群规划</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-2-%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85"><span class="toc-number">1.3.2.</span> <span class="toc-text">3.4.2 虚拟机安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-3-CentOS%E5%AE%89%E8%A3%85"><span class="toc-number">1.3.3.</span> <span class="toc-text">3.4.3 CentOS安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-4-%E5%9F%BA%E6%9C%AC%E2%BC%AF%E5%85%B7%E5%AE%89%E8%A3%85"><span class="toc-number">1.3.4.</span> <span class="toc-text">3.4.4 基本⼯具安装</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#3-4-4-1-%E5%AE%89%E8%A3%85Xshell"><span class="toc-number">1.3.4.1.</span> <span class="toc-text">3.4.4.1 安装Xshell</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#Xshell%E7%9A%84%E4%B8%8B%E8%BD%BD"><span class="toc-number">1.3.4.1.1.</span> <span class="toc-text">Xshell的下载</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-4-4-2-openssh%E5%AE%89%E8%A3%85%EF%BC%8C%E4%BE%BF%E4%BA%8E%E8%BF%9C%E7%A8%8B%E4%B8%8A%E4%BC%A0%E2%BD%82"><span class="toc-number">1.3.4.2.</span> <span class="toc-text">3.4.4.2 openssh安装，便于远程上传⽂</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-4-4-3-%E5%90%8C%E6%AD%A5%E6%97%B6%E9%97%B4%E2%BC%AF%E5%85%B7"><span class="toc-number">1.3.4.3.</span> <span class="toc-text">3.4.4.3 同步时间⼯具</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-4-4-4-%E2%BD%82%E4%BB%B6%E4%B8%8A%E4%BC%A0-rz-%E4%B8%8B%E8%BD%BD-sz-%E2%BC%AF%E5%85%B7"><span class="toc-number">1.3.4.4.</span> <span class="toc-text">3.4.4.4 ⽂件上传(rz)下载(sz)⼯具</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-4-4-5-%E5%AE%89%E8%A3%85%E2%BD%B9%E7%BB%9C%E4%B8%8B%E8%BD%BD%E2%BC%AF%E5%85%B7wget"><span class="toc-number">1.3.4.5.</span> <span class="toc-text">3.4.4.5 安装⽹络下载⼯具wget</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-4-4-6-%E5%85%B3%E9%97%AD%E9%98%B2%E2%BD%95%E5%A2%99"><span class="toc-number">1.3.4.6.</span> <span class="toc-text">3.4.4.6 关闭防⽕墙</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-5-%E9%85%8D%E7%BD%AESSH%E5%85%8D%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95"><span class="toc-number">1.3.5.</span> <span class="toc-text">3.4.5 配置SSH免密码登录</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#3-4-5-1-%E4%BF%AE%E6%94%B9hosts%E2%BD%82%E4%BB%B6%EF%BC%8C%E6%B7%BB%E5%8A%A0%E4%BB%A5%E4%B8%8B%E5%86%85%E5%AE%B9%EF%BC%8C%E4%B8%89%E5%8F%B0%E4%B8%BB%E6%9C%BA%E5%9D%87%E6%89%A7%E2%BE%8F%E6%AD%A4%E6%93%8D%E4%BD%9C"><span class="toc-number">1.3.5.1.</span> <span class="toc-text">3.4.5.1 修改hosts⽂件，添加以下内容，三台主机均执⾏此操作</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-4-5-2-%E9%85%8D%E7%BD%AESSH"><span class="toc-number">1.3.5.2.</span> <span class="toc-text">3.4.5.2 配置SSH</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-6-%E5%AE%89%E8%A3%85Java%E7%8E%AF%E5%A2%83"><span class="toc-number">1.3.6.</span> <span class="toc-text">3.4.6 安装Java环境</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#3-4-6-1-JDK%E4%B8%8B%E8%BD%BD"><span class="toc-number">1.3.6.1.</span> <span class="toc-text">3.4.6.1 JDK下载</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-4-6-2-%E5%8E%9FJDK%E5%8D%B8%E8%BD%BD"><span class="toc-number">1.3.6.2.</span> <span class="toc-text">3.4.6.2 原JDK卸载</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-4-6-3-%E5%AE%89%E8%A3%85JDK"><span class="toc-number">1.3.6.3.</span> <span class="toc-text">3.4.6.3 安装JDK</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E2%91%A0%E5%9C%A8slave1%E4%B8%BB%E8%8A%82%E7%82%B9%E4%B8%8A%E5%88%9B%E5%BB%BA%E6%8C%87%E5%AE%9A%E7%9B%AE%E5%BD%95"><span class="toc-number">1.3.6.3.1.</span> <span class="toc-text">①在slave1主节点上创建指定目录</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E2%91%A1%E8%BF%9B%E5%85%A5%E5%88%B0Java%E7%9B%AE%E5%BD%95"><span class="toc-number">1.3.6.3.2.</span> <span class="toc-text">②进入到Java目录</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E2%91%A2%E4%BD%BF%E7%94%A8rz%E5%91%BD%E4%BB%A4%E4%BB%8Ewindows%E4%B8%BB%E6%9C%BA%E4%B8%8A%E4%BC%A0jdk%E5%8E%8B%E7%BC%A9%E5%8C%85%E5%88%B0slave1"><span class="toc-number">1.3.6.3.3.</span> <span class="toc-text">③使用rz命令从windows主机上传jdk压缩包到slave1</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E2%91%A3%E8%A7%A3%E5%8E%8B%E5%88%B0%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95"><span class="toc-number">1.3.6.3.4.</span> <span class="toc-text">④解压到当前目录</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E2%91%A4%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">1.3.6.3.5.</span> <span class="toc-text">⑤配置环境变量</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E2%91%A5%E5%9C%A8%E8%AF%A5%E6%96%87%E4%BB%B6%E5%90%8E%E9%9D%A2%E8%BF%BD%E5%8A%A0%E4%B8%80%E4%B8%8B%E5%86%85%E5%AE%B9"><span class="toc-number">1.3.6.3.6.</span> <span class="toc-text">⑥在该文件后面追加一下内容</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E2%91%A6%E4%BD%BF%E5%88%9A%E6%89%8D%E7%9A%84%E8%AE%BE%E7%BD%AE%E7%94%9F%E6%95%88"><span class="toc-number">1.3.6.3.7.</span> <span class="toc-text">⑦使刚才的设置生效</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E2%91%A7%E6%A3%80%E6%B5%8B%E6%98%AF%E5%90%A6%E9%85%8D%E7%BD%AE%E6%88%90"><span class="toc-number">1.3.6.3.8.</span> <span class="toc-text">⑧检测是否配置成</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E2%91%A8%E5%85%B6%E4%BB%96%E4%B8%BB%E6%9C%BA%E5%90%8C%E6%A0%B7%E7%9A%84%E6%93%8D%E4%BD%9C%E8%BF%9B%E8%A1%8C%E5%8D%B3%E5%8F%AFhttps-hexo-io-docs-one-command-deployment-html"><span class="toc-number">1.3.6.3.9.</span> <span class="toc-text">⑨其他主机同样的操作进行即可https:&#x2F;&#x2F;hexo.io&#x2F;docs&#x2F;one-command-deployment.html)</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>	
-        </div>
-    
+        
+        
+        Powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+        <span class="division">|</span>
+        Theme - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></s>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
 </div>
 
-
-    </div>
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
 </div>
-</body>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="Hexo"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags/%E6%97%85%E8%A1%8C/">旅行</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="http://shenyu-vip.lofter.com">摄影</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2019/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
 
 
-<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
-<script src="/js/plugin.js"></script>
-<script src="/js/typed.js"></script>
-<script src="/js/diaspora.js"></script>
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
 
 
-<link rel="stylesheet" href="/photoswipe/photoswipe.css">
-<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/js/tocbot.min.js"></script>
 
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
 
-<script src="/photoswipe/photoswipe.min.js"></script>
-<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
 
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
 
 <!-- Root element of PhotoSwipe. Must have class pswp. -->
 <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
     <!-- Background of PhotoSwipe. 
          It's a separate element as animating opacity is faster than rgba(). -->
     <div class="pswp__bg"></div>
+
     <!-- Slides wrapper with overflow:hidden. -->
     <div class="pswp__scroll-wrap">
+
         <!-- Container that holds slides. 
             PhotoSwipe keeps only 3 of them in the DOM to save memory.
             Don't modify these 3 pswp__item elements, data is added later on. -->
@@ -183,42 +507,177 @@ export PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin</code></pre>
             <div class="pswp__item"></div>
             <div class="pswp__item"></div>
         </div>
+
         <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
         <div class="pswp__ui pswp__ui--hidden">
+
             <div class="pswp__top-bar">
+
                 <!--  Controls are self-explanatory. Order can be changed. -->
+
                 <div class="pswp__counter"></div>
+
                 <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
                 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
                 <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
                 <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
                 <!-- element will get class pswp__preloader--active when preloader is running -->
                 <div class="pswp__preloader">
                     <div class="pswp__preloader__icn">
-                      <div class="pswp__preloader__cut">
-                        <div class="pswp__preloader__donut"></div>
-                      </div>
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
                     </div>
                 </div>
             </div>
+
             <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div> 
+                <div class="pswp__share-tooltip"></div>
             </div>
+
             <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
             </button>
+
             <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
             </button>
+
             <div class="pswp__caption">
                 <div class="pswp__caption__center"></div>
             </div>
+
         </div>
+
     </div>
+
 </div>
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
 
 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
 
 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+  </div>
+</body>
 
 </html>

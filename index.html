@@ -1,182 +1,680 @@
-
 <!DOCTYPE html>
-<html lang="en" class="loading">
+
+
+<html lang="en">
+
+
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Hexo</title>
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="google" content="notranslate" />
-    <meta name="keywords" content="Fechin,"> 
+  <meta charset="utf-8" />
     
-    <meta name="author" content="John Doe"> 
-    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
-    <link rel="icon" href="/img/favicon.png"> 
-    
-    
-<link rel="stylesheet" href="/css/diaspora.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+     
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
 
-	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({
-              google_ad_client: "ca-pub-8691406134231910",
-              enable_page_level_ads: true
-         });
-    </script>
-    <script async custom-element="amp-auto-ads"
-        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
-    </script>
-<meta name="generator" content="Hexo 5.1.1"></head>
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
 
-<body class="loading">
-    <span id="config-title" style="display:none">Hexo</span>
-    <div id="loader"></div>
-    <div class="nav">
-    <ul id="menu-menu" class="menu">
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+  
+  
+
+  
+
+<link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      
+<section class="cover">
+    
+      
+      <a class="forkMe" href="https://github.com/Shen-Yu/hexo-theme-ayer"
+        target="_blank"><img width="149" height="149" src="/images/forkme.png"
+          class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
+    
+  <div class="cover-frame">
+    <div class="bg-box">
+      <img src="/images/cover1.jpg" alt="image frame" />
+    </div>
+    <div class="cover-inner text-center text-white">
+      <h1><a href="/">Hexo</a></h1>
+      <div id="subtitle-box">
         
-        <li class="pview menu-item menu-item-type-post_type menu-item-object-page">
-            <a href="//" title="首页" target="_blank" rel="noopener">首页</a>
-        </li>
+        <span id="subtitle"></span>
         
-        <li class="pview menu-item menu-item-type-post_type menu-item-object-page">
-            <a href="/categories/" title="分类" target="_blank" rel="noopener">分类</a>
-        </li>
+      </div>
+      <div>
         
-        <li class="pview menu-item menu-item-type-post_type menu-item-object-page">
-            <a href="/tags/" title="标签" target="_blank" rel="noopener">标签</a>
-        </li>
-        
-        <li class="pview menu-item menu-item-type-post_type menu-item-object-page">
-            <a href="/archives/" title="归档" target="_blank" rel="noopener">归档</a>
-        </li>
-        
-        <li class="pview menu-item menu-item-type-post_type menu-item-object-page">
-            <a href="/about/" title="关于" target="_blank" rel="noopener">关于</a>
-        </li>
-        
+      </div>
+    </div>
+  </div>
+  <div class="cover-learn-more">
+    <a href="javascript:void(0)" class="anchor"><i class="ri-arrow-down-line"></i></a>
+  </div>
+</section>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js"></script>
+
+
+<!-- Subtitle -->
+
+  <script>
+    try {
+      var typed = new Typed("#subtitle", {
+        strings: ['面朝大海，春暖花开', '愿你一生努力，一生被爱', '想要的都拥有，得不到的都释怀'],
+        startDelay: 0,
+        typeSpeed: 200,
+        loop: true,
+        backSpeed: 100,
+        showCursor: true
+      });
+    } catch (err) {
+      console.log(err)
+    }
+  </script>
+  
+<div id="main">
+  <section class="outer">
+  
+  
+
+<div class="notice" style="margin-top:50px">
+    <i class="ri-heart-fill"></i>
+    <div class="notice-content" id="broad"></div>
+</div>
+<script type="text/javascript">
+    fetch('https://v1.hitokoto.cn')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("broad").innerHTML = data.hitokoto;
+        })
+        .catch(console.error)
+</script>
+
+<style>
+    .notice {
+        padding: 20px;
+        border: 1px dashed #e6e6e6;
+        color: #969696;
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        background: #fbfbfb50;
+        border-radius: 10px;
+    }
+
+    .notice i {
+        float: left;
+        color: #999;
+        font-size: 16px;
+        padding-right: 10px;
+        vertical-align: middle;
+        margin-top: -2px;
+    }
+
+    .notice-content {
+        display: initial;
+        vertical-align: middle;
+    }
+</style>
+  
+  <article class="articles">
+    
+    
+    
+    
+    <article
+  id="post-HDFS的API操作"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/09/15/HDFS%E7%9A%84API%E6%93%8D%E4%BD%9C/"
+    >HDFS的API操作</a> 
+</h2>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/09/15/HDFS%E7%9A%84API%E6%93%8D%E4%BD%9C/" class="article-date">
+  <time datetime="2020-09-15T09:20:48.000Z" itemprop="datePublished">2020-09-15</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/hadoop/">hadoop</a> / <a class="article-category-link" href="/categories/hadoop/HDFS/">HDFS</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h3 id="HDFS的API操作"><a href="#HDFS的API操作" class="headerlink" title="HDFS的API操作"></a>HDFS的API操作</h3><h5 id="HDFS文件上传-测试参数优先级"><a href="#HDFS文件上传-测试参数优先级" class="headerlink" title="HDFS文件上传(测试参数优先级)"></a>HDFS文件上传(测试参数优先级)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public void CopyFromLocalFile() throws URISyntaxException, IOException, InterruptedException &#123;</span><br><span class="line">        Configuration conf&#x3D;new Configuration();</span><br><span class="line">        &#x2F;&#x2F;获取hdfs客户端对象</span><br><span class="line">        FileSystem file&#x3D;FileSystem.get(new URI(&quot;hdfs:&#x2F;&#x2F;192.168.114.101:9000&quot;),conf,&quot;root&quot;);</span><br><span class="line">        &#x2F;&#x2F;执行上传API</span><br><span class="line">        file.copyFromLocalFile(new Path(&quot;E:\\spider_project\\Xpath&quot;),</span><br><span class="line">                new Path(&quot;&#x2F;fanfan&quot;));</span><br><span class="line">        file.close();</span><br><span class="line">        System.out.println(&quot;上传成功！&quot;);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="HDFS文件下载"><a href="#HDFS文件下载" class="headerlink" title="HDFS文件下载"></a>HDFS文件下载</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public void download() throws URISyntaxException, IOException, InterruptedException &#123;</span><br><span class="line">        Configuration conf&#x3D;new Configuration();</span><br><span class="line">        FileSystem file&#x3D;FileSystem.get(new URI(&quot;hdfs:&#x2F;&#x2F;192.168.114.101:9000&quot;),conf,&quot;root&quot;);</span><br><span class="line">        file.copyToLocalFile(false,new Path(&quot;&#x2F;zenghui&#x2F;hadoop&#x2F;test.txt&quot;),new Path(&quot;D:&#x2F;zenghui.txt&quot;),true);</span><br><span class="line">        &#x2F;&#x2F;fs.copyToLocalFile(delSrc, src, dst, useRawLocalFileSystem); </span><br><span class="line">        &#x2F;&#x2F;delSrc:代表是否删除原数据,也就相当于剪切 </span><br><span class="line">        &#x2F;&#x2F;src:要下载的文件   </span><br><span class="line">        &#x2F;&#x2F;dst:要存放的路径</span><br><span class="line">        &#x2F;&#x2F;useRawLocalFileSystem:代表是否校验,如果false&#x2F;true代表开启&#x2F;关闭,开启校验的话会 产生一个.crc的一个文件   </span><br><span class="line">        &#x2F;&#x2F;关闭资源 </span><br><span class="line">        file.close();</span><br><span class="line">        System.out.println(&quot;下载成功&quot;);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="HDFS文件夹创建-测试参数优先级"><a href="#HDFS文件夹创建-测试参数优先级" class="headerlink" title="HDFS文件夹创建(测试参数优先级)"></a>HDFS文件夹创建(测试参数优先级)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public void mkdir() throws IOException, URISyntaxException, InterruptedException &#123;</span><br><span class="line">        &#x2F;&#x2F;获取一个HDFS的抽象类对象</span><br><span class="line">        Configuration conf&#x3D;new Configuration();</span><br><span class="line">        FileSystem fileSystem &#x3D; FileSystem.get(new URI(&quot;hdfs:&#x2F;&#x2F;192.168.114.101:9000&quot;),conf,&quot;root&quot;);</span><br><span class="line">        &#x2F;&#x2F;用这个对象操作文件系统</span><br><span class="line">        fileSystem.mkdirs(new Path(&quot;&#x2F;fanfan&quot;));</span><br><span class="line">        &#x2F;&#x2F;关闭资源</span><br><span class="line">        fileSystem.close();</span><br><span class="line">        System.out.println(&quot;创建成功！&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="HDFS文件夹删除"><a href="#HDFS文件夹删除" class="headerlink" title="HDFS文件夹删除"></a>HDFS文件夹删除</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public void delete() throws URISyntaxException, IOException, InterruptedException &#123;</span><br><span class="line">        Configuration conf&#x3D;new Configuration();</span><br><span class="line">        FileSystem file&#x3D;FileSystem.get(new URI(&quot;hdfs:&#x2F;&#x2F;192.168.114.101:9000&quot;),conf,&quot;root&quot;);</span><br><span class="line">        file.delete(new Path(&quot;&#x2F;fanfan&quot;),true);</span><br><span class="line">        file.close();</span><br><span class="line">        System.out.println(&quot;删除成功！&quot;);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="HDFS文件名更改"><a href="#HDFS文件名更改" class="headerlink" title="HDFS文件名更改"></a>HDFS文件名更改</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public void rename() throws URISyntaxException, IOException, InterruptedException &#123;</span><br><span class="line">        Configuration conf&#x3D;new Configuration();</span><br><span class="line">        FileSystem file&#x3D;FileSystem.get(new URI(&quot;hdfs:&#x2F;&#x2F;192.168.114.101:9000&quot;),conf,&quot;root&quot;);</span><br><span class="line">        file.rename(new Path(&quot;&#x2F;zenghui&#x2F;hadoop&#x2F;dianying.csv&quot;),new Path(&quot;&#x2F;zenghui&#x2F;hadoop&#x2F;douban.csv&quot;));</span><br><span class="line">        file.close();</span><br><span class="line">        System.out.println(&quot;文件改名成功！&quot;);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="HDFS文件详情查看"><a href="#HDFS文件详情查看" class="headerlink" title="HDFS文件详情查看"></a>HDFS文件详情查看</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public void listfile() throws IOException, URISyntaxException, InterruptedException &#123;</span><br><span class="line">        Configuration conf&#x3D;new Configuration();</span><br><span class="line">        FileSystem fs&#x3D;FileSystem.get(new URI(&quot;hdfs:&#x2F;&#x2F;192.168.114.101:9000&quot;),conf,&quot;root&quot;);</span><br><span class="line">        RemoteIterator&lt;LocatedFileStatus&gt; RemoteIterator &#x3D; fs.listFiles(new Path(&quot;&#x2F;fanfan&quot;),true);</span><br><span class="line">        while(RemoteIterator.hasNext())&#123;</span><br><span class="line">            LocatedFileStatus next &#x3D; RemoteIterator.next();</span><br><span class="line">            System.out.println(next.getPath().getName());  &#x2F;&#x2F; 文件名称</span><br><span class="line">            System.out.println(next.getLen());      &#x2F;&#x2F;文件长度</span><br><span class="line">            System.out.println(next.getPermission());    &#x2F;&#x2F;文件权限</span><br><span class="line">            System.out.println(next.getBlockSize());   文件块大小</span><br><span class="line">            System.out.println(next.getReplication());    文件副本数</span><br><span class="line">            BlockLocation[] blockLocations &#x3D; next.getBlockLocations();   &#x2F;&#x2F;块信息</span><br><span class="line">            for (BlockLocation blockLocation:blockLocations)&#123;</span><br><span class="line">                String[] hosts &#x3D; blockLocation.getHosts();   &#x2F;&#x2F;获取块所在的主机地址</span><br><span class="line">                for (String host:hosts)&#123;</span><br><span class="line">                    System.out.println(host);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        fs.close();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="HDFS文件和文件夹判断-递归"><a href="#HDFS文件和文件夹判断-递归" class="headerlink" title="HDFS文件和文件夹判断(递归)"></a>HDFS文件和文件夹判断(递归)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public void isDir(Path path,FileSystem fs) throws IOException, URISyntaxException, InterruptedException &#123;</span><br><span class="line">        FileStatus[] fileStatuses &#x3D; fs.listStatus(path);</span><br><span class="line">        for(FileStatus fileStatu:fileStatuses)&#123;</span><br><span class="line">            if(fileStatu.isFile())&#123;</span><br><span class="line">                System.out.println(&quot;f:&quot;+fileStatu.getPath().getName());</span><br><span class="line">            &#125;else if (fileStatu.isDirectory())&#123;</span><br><span class="line">                System.out.println(&quot;d:&quot;+fileStatu.getPath().getName());</span><br><span class="line">                isDir(fileStatu.getPath(),fs);   &#x2F;&#x2F;递归访问</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">public static void main(String[] args) throws InterruptedException, IOException, URISyntaxException &#123;</span><br><span class="line">        Configuration conf&#x3D;new Configuration();</span><br><span class="line">        FileSystem fs&#x3D;FileSystem.get(new URI(&quot;hdfs:&#x2F;&#x2F;192.168.114.101:9000&quot;),conf,&quot;root&quot;);</span><br><span class="line">        Path path &#x3D; new Path(&quot;&#x2F;&quot;);</span><br><span class="line">        demo1 test&#x3D;new demo1();</span><br><span class="line">        test.isDir(path,fs);</span><br><span class="line">        fs.closeAll();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="HDFS的I-O流操作"><a href="#HDFS的I-O流操作" class="headerlink" title="HDFS的I/O流操作"></a>HDFS的I/O流操作</h4><h5 id="HDFS文件上传"><a href="#HDFS文件上传" class="headerlink" title="HDFS文件上传"></a>HDFS文件上传</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public void copyBytesToHdfs() throws IOException, URISyntaxException, InterruptedException &#123;</span><br><span class="line">        Configuration conf&#x3D;new Configuration();</span><br><span class="line">        FileSystem fs &#x3D; FileSystem.get(new URI(&quot;hdfs:&#x2F;&#x2F;192.168.114.101:9000&quot;),conf,&quot;root&quot;);</span><br><span class="line">        FileInputStream fileInputStream &#x3D; new FileInputStream(new File(&quot;E:\\spider_project\\selenium\\demo1.txt&quot;));</span><br><span class="line">        FSDataOutputStream fsDataOutputStream &#x3D; fs.create(new Path(&quot;&#x2F;xiaofanfan&#x2F;&quot;));</span><br><span class="line">        IOUtils.copyBytes(fileInputStream, fsDataOutputStream, conf);</span><br><span class="line">        IOUtils.closeStream(fileInputStream);</span><br><span class="line">        IOUtils.closeStream(fsDataOutputStream);</span><br><span class="line">        System.out.println(&quot;上传成功&quot;);</span><br><span class="line">        fs.close();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="HDFS文件下载-1"><a href="#HDFS文件下载-1" class="headerlink" title="HDFS文件下载"></a>HDFS文件下载</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public void copyBytesFromHdfs() throws IOException, URISyntaxException, InterruptedException &#123;</span><br><span class="line">        Configuration conf&#x3D;new Configuration();</span><br><span class="line">        FileSystem fs &#x3D; FileSystem.get(new URI(&quot;hdfs:&#x2F;&#x2F;192.168.114.101:9000&quot;),conf,&quot;root&quot;);</span><br><span class="line">        FSDataInputStream fis&#x3D;fs.open(new Path(&quot;&#x2F;xiaofanfan&#x2F;demo.txt&quot;));</span><br><span class="line">        FileOutputStream fio &#x3D; new FileOutputStream(new File(&quot;D\\&quot;));</span><br><span class="line">        IOUtils.copyBytes(fis,fio,conf);</span><br><span class="line">        IOUtils.closeStream(fis);</span><br><span class="line">        IOUtils.closeStream(fio);</span><br><span class="line">        fs.close();</span><br><span class="line">        System.out.println(&quot;成功&quot;);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure> 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDFS/" rel="tag">HDFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hadoop/" rel="tag">hadoop</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+   
+</article>
+
+    
+    <article
+  id="post-hadoop环境搭建-二"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/09/15/hadoop%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA-%E4%BA%8C/"
+    >hadoop环境搭建(二)</a> 
+</h2>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/09/15/hadoop%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA-%E4%BA%8C/" class="article-date">
+  <time datetime="2020-09-15T09:17:52.000Z" itemprop="datePublished">2020-09-15</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/hadoop/">hadoop</a> / <a class="article-category-link" href="/categories/hadoop/%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/">集群搭建</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h4 id="3-4-7-安装Hadoop环境"><a href="#3-4-7-安装Hadoop环境" class="headerlink" title="3.4.7 安装Hadoop环境"></a>3.4.7 安装Hadoop环境</h4><h5 id="3-4-7-1-下载Hadoop安装包"><a href="#3-4-7-1-下载Hadoop安装包" class="headerlink" title="3.4.7.1 下载Hadoop安装包"></a>3.4.7.1 下载Hadoop安装包</h5><p>下载地址：<a target="_blank" rel="noopener" href="https://hadoop.apache.org/releases.html">https://hadoop.apache.org/releases.html</a></p>
+<h5 id="3-4-7-2-上传⽂件到服务器"><a href="#3-4-7-2-上传⽂件到服务器" class="headerlink" title="3.4.7.2 上传⽂件到服务器"></a>3.4.7.2 上传⽂件到服务器</h5><h6 id="①上传"><a href="#①上传" class="headerlink" title="①上传"></a>①上传</h6><h6 id="②解压"><a href="#②解压" class="headerlink" title="②解压"></a>②解压</h6><p><img src="https://pic.downk.cc/item/5e2e67e52fb38b8c3ca74baf.png"></p>
+<h5 id="3-4-7-3-创建相应⽬录"><a href="#3-4-7-3-创建相应⽬录" class="headerlink" title="3.4.7.3 创建相应⽬录"></a>3.4.7.3 创建相应⽬录</h5><p>创建⽬录是为了配置的时候知道谁与谁对应。其实可以不创建，Hadoop会⾃动创建。<br>创建以下目录，以备后用<br><img src="https://pic.downk.cc/item/5e2e67e52fb38b8c3ca74bb1.png"></p>
+<h5 id="3-4-7-4-修改配置⽂件"><a href="#3-4-7-4-修改配置⽂件" class="headerlink" title="3.4.7.4 修改配置⽂件"></a>3.4.7.4 修改配置⽂件</h5><p>在Hadoop中有以下配置⽂件需要做修改</p>
+<h6 id="⼏个脚本的配置"><a href="#⼏个脚本的配置" class="headerlink" title="⼏个脚本的配置"></a>⼏个脚本的配置</h6><p>修改JAVA_HOME为以下内容，否则容易出现Hadoop无法启动问题<br><img src="https://pic.downk.cc/item/5e2e6a012fb38b8c3ca77294.png"><br><img src="https://pic.downk.cc/item/5e2e6a012fb38b8c3ca77296.png"><br>修改JAVA_HOME为以下内容<br><img src="https://pic.downk.cc/item/5e2e6a1c2fb38b8c3ca7749b.png"><br><img src="https://pic.downk.cc/item/5e2e6a1c2fb38b8c3ca7749d.png"><br>修改JAVA_HOME为以下内容<br><img src="https://pic.downk.cc/item/5e2e6a262fb38b8c3ca7759c.png"><br><img src="https://pic.downk.cc/item/5e2e6a262fb38b8c3ca7759e.png"></p>
+<h6 id="核心配置文件"><a href="#核心配置文件" class="headerlink" title="核心配置文件"></a>核心配置文件</h6><p><img src="https://pic.downk.cc/item/5e2e6b582fb38b8c3ca78ceb.png"></p>
+<pre><code>在&lt;configuration&gt;&lt;/configuration&gt;中间添加一下内容
+&lt;property&gt; 
+        &lt;name&gt;fs.defaultFS&lt;/name&gt;&lt;!--定义Hadoop HDFS中 namenode 的URI和端口【必须配 置】--&gt; 
+        &lt;value&gt;hdfs://master:9000&lt;/value&gt;
+&lt;/property&gt;
+&lt;property&gt; 
+        &lt;name&gt;hadoop.tmp.dir&lt;/name&gt;&lt;!--Hadoop运行时临时的存储目录【必须配置】--&gt; 
+        &lt;value&gt;file:/opt/SoftWare/Hadoop/hadoop-2.7.7/tmp&lt;/value&gt;
+&lt;/property&gt;
+&lt;property&gt; 
+        &lt;name&gt;io.file.buffer.size&lt;/name&gt;&lt;!--用作序列化文件处理时读写buffer的大小【可以不 配置】--&gt; 
+        &lt;value&gt;131702&lt;/value&gt;
+&lt;/property&gt; &lt;!--以下两个配置暂时用不上【可以不必配置】--&gt;
+&lt;property&gt; 
+        &lt;name&gt;hadoop.proxyuser.hadoopuser.hosts&lt;/name&gt; 
+        &lt;value&gt;*&lt;/value&gt;
+&lt;/property&gt;
+i&lt;property&gt; 
+        &lt;name&gt;hadoop.proxyuser.hadoopuser.groups&lt;/name&gt; 
+        &lt;value&gt;*&lt;/value&gt;
+&lt;/property&gt;</code></pre>
+<p><img src="https://pic.downk.cc/item/5e2e6d132fb38b8c3ca7abe4.png"></p>
+<h6 id="HDFS-配置⽂件"><a href="#HDFS-配置⽂件" class="headerlink" title="HDFS 配置⽂件"></a>HDFS 配置⽂件</h6><pre><code>&lt;!--在&lt;configuration&gt;&lt;/configuration&gt;中间添加一下内容--&gt;
+&lt;property&gt;&lt;!--namenode节点元数据存储目录【必须配置】--&gt;  
+    &lt;name&gt;dfs.namenode.name.dir&lt;/name&gt;
+    &lt;value&gt;file:/opt/SoftWare/Hadoop/hadoop-2.7.7/dfs/name&lt;/value&gt; 
+&lt;/property&gt; 
+&lt;property&gt;&lt;!--datanode 真正的数据存储目录【必须配置】--&gt;
+    &lt;name&gt;dfs.datanode.data.dir&lt;/name&gt;  
+    &lt;value&gt;file:/opt/SoftWare/Hadoop/hadoop-2.7.7/dfs/data&lt;/value&gt; 
+&lt;/property&gt;
+&lt;property&gt;&lt;!--指定DataNode存储block的副本数量,不大于DataNode的个数就行，默认为3【必 须】--&gt;
+    &lt;name&gt;dfs.replication&lt;/name&gt; 
+    &lt;value&gt;2&lt;/value&gt; 
+&lt;/property&gt;
+&lt;property&gt;&lt;!--指定SecondaryNamenode的工作目录【必须配置】--&gt;
+    &lt;name&gt;dfs.namenode.checkpoint.dir&lt;/name&gt;
+    &lt;value&gt;file:/opt/SoftWare/Hadoop/hadoop-2.7.7/dfs/namesecondary&lt;/value&gt; 
+&lt;/property&gt;
+&lt;property&gt;&lt;!--指定SecondaryNamenode的http协议访问地址【必须配置】--&gt; 
+    &lt;name&gt;dfs.namenode.secondary.http-address&lt;/name&gt;
+    &lt;value&gt;node02:50090&lt;/value&gt; 
+&lt;/property&gt;
+&lt;property&gt;&lt;!--指定SecondaryNamenode的https协议访问地址：【可以不进行配置】--&gt;
+    &lt;name&gt;dfs.namenode.secondary.https-address&lt;/name&gt;
+    &lt;value&gt;node02:50091&lt;/value&gt; 
+&lt;/property&gt;
+&lt;property&gt;&lt;!--必须设置为true，否则就不能通过web访问hdfs上的文件信息【必须配置】--&gt;
+    &lt;name&gt;dfs.webhdfs.enabled&lt;/name&gt;
+    &lt;value&gt;true&lt;/value&gt; 
+&lt;/property&gt;</code></pre>
+<p><img src="https://pic.downk.cc/item/5e2e6fad2fb38b8c3ca7e1a2.png"></p>
+<h6 id="Yarn-配置⽂件"><a href="#Yarn-配置⽂件" class="headerlink" title="Yarn 配置⽂件"></a>Yarn 配置⽂件</h6><pre><code>&lt;property&gt;  &lt;!--Reducer获取数据的方式【必须配置】--&gt; 
+    &lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt; 
+    &lt;value&gt;mapreduce_shuffle&lt;/value&gt; 
+&lt;/property&gt; 
+&lt;property&gt;  &lt;!--Reducer获取数据的方式中shuffle过程对应的类，可以自定义，【可以不配置】，这是默认 的--&gt; 
+    &lt;name&gt;yarn.nodemanager.aux-services.mapreduce.shuffle.class&lt;/name&gt;
+    &lt;value&gt;org.apache.hadoop.mapred.ShuffleHandler&lt;/value&gt;
+&lt;/property&gt; 
+&lt;property&gt; &lt;!--ResourceManager主机名，配置后其他的address就不用配置了，除非需要自定义端口【必 须配置】--&gt; 
+    &lt;name&gt;yarn.resourcemanager.hostname&lt;/name&gt; 
+    &lt;value&gt;master&lt;/value&gt; 
+&lt;/property&gt; 
+&lt;property&gt;&lt;!--NodeManager节点的内存大小，单位为MB【必须配置】--&gt; 
+    &lt;name&gt;yarn.nodemanager.resource.memory-mb&lt;/name&gt; 
+    &lt;value&gt;2048&lt;/value&gt; 
+&lt;/property&gt; 
+&lt;!-- 日志聚集功能【暂时不需要配置】 --&gt; &lt;property&gt;
+    &lt;name&gt;yarn.log-aggregation-enable&lt;/name&gt; 
+    &lt;value&gt;true&lt;/value&gt; 
+&lt;/property&gt; 
+&lt;!-- 日志保留时间设置7天 【暂时不需要配置】--&gt; &lt;property&gt; 
+    &lt;name&gt;yarn.log-aggregation.retain-seconds&lt;/name&gt; 
+    &lt;value&gt;604800&lt;/value&gt; 
+&lt;/property&gt;</code></pre>
+<p><img src="https://pic.downk.cc/item/5e2e9b4f2fb38b8c3cab6912.png"></p>
+<h6 id="MapReduce-配置⽂件"><a href="#MapReduce-配置⽂件" class="headerlink" title="MapReduce 配置⽂件"></a>MapReduce 配置⽂件</h6><p>但是这个⽂件并不存在，先复制再打开<br>①使用cp命令复制一份出来，不要自己创建<br><img src="https://pic.downk.cc/item/5e2e9cd42fb38b8c3cab8c38.png"><br><img src="https://pic.downk.cc/item/5e2e9cd42fb38b8c3cab8c3a.png"></p>
+<pre><code>&lt;property&gt;&lt;!--使用yarn运行mapreduce程序【必须配置】--&gt; 
+    &lt;name&gt;mapreduce.framework.name&lt;/name&gt; 
+    &lt;value&gt;yarn&lt;/value&gt; 
+&lt;/property&gt; &lt;!--配置历史服务器【暂时不需要配置】--&gt; &lt;property&gt;&lt;!--MapReduce JobHistory Server地址--&gt;
+    &lt;name&gt;mapreduce.jobhistory.address&lt;/name&gt; 
+    &lt;value&gt;master:10020&lt;/value&gt; 
+&lt;/property&gt; 
+&lt;property&gt;&lt;!--MapReduce JobHistory Server Web界面地址--&gt; 
+    &lt;name&gt;mapreduce.jobhistory.webapp.address&lt;/name&gt; 
+    &lt;value&gt;master:19888&lt;/value&gt; 
+&lt;/property&gt;</code></pre>
+<p><img src="https://pic.downk.cc/item/5e2e9cd42fb38b8c3cab8c3c.png"></p>
+<h6 id="slaves⽂件"><a href="#slaves⽂件" class="headerlink" title="slaves⽂件"></a>slaves⽂件</h6><p>添加以下内容:这里添加的是所有的数据节点，注意删除原来的localhost【必须配置】 </p>
+<p><img src="https://pic.downk.cc/item/5e2ea2532fb38b8c3cabf96a.png"></p>
+<h5 id="3-4-7-5-⽂件分发"><a href="#3-4-7-5-⽂件分发" class="headerlink" title="3.4.7.5 ⽂件分发"></a>3.4.7.5 ⽂件分发</h5><p>将slave1节点上的SoftWare⽬录远程拷⻉到其他节点<br><img src="https://pic.downk.cc/item/5e2ea6e72fb38b8c3cac50ea.png"><br><img src="https://pic.downk.cc/item/5e2ea6e72fb38b8c3cac50ec.png"></p>
+<h5 id="3-4-7-6-设置环境变量"><a href="#3-4-7-6-设置环境变量" class="headerlink" title="3.4.7.6 设置环境变量"></a>3.4.7.6 设置环境变量</h5><h6 id="①各节点均编辑-etc-profile文件"><a href="#①各节点均编辑-etc-profile文件" class="headerlink" title="①各节点均编辑/etc/profile文件"></a>①各节点均编辑/etc/profile文件</h6><p><img src="https://pic.downk.cc/item/5e2ea8452fb38b8c3cac6b76.png"></p>
+<h6 id="②-添加以下内容"><a href="#②-添加以下内容" class="headerlink" title="②#添加以下内容"></a>②#添加以下内容</h6><pre><code>export HADOOP_HOME=/opt/SoftWare/Hadoop/hadoop-2.7.7   
+export HADOOP_MAPRED_HOME=$HADOOP_HOME    
+export HADOOP_COMMON_HOME=$HADOOP_HOME    
+export HADOOP_HDFS_HOME=$HADOOP_HOME    
+export YARN_HOME=$HADOOP_HOME    
+export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native    
+export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin </code></pre>
+<h5 id="③使设置立即生效"><a href="#③使设置立即生效" class="headerlink" title="③使设置立即生效"></a>③使设置立即生效</h5><p><img src="https://pic.downk.cc/item/5e2ea8452fb38b8c3cac6b72.png"></p>
+<h5 id="④检查hadoop版本"><a href="#④检查hadoop版本" class="headerlink" title="④检查hadoop版本"></a>④检查hadoop版本</h5><p><img src="https://pic.downk.cc/item/5e2ea8452fb38b8c3cac6b74.png"></p>
+<h5 id="3-4-7-7-格式化Hadoop"><a href="#3-4-7-7-格式化Hadoop" class="headerlink" title="3.4.7.7 格式化Hadoop"></a>3.4.7.7 格式化Hadoop</h5><p><img src="https://pic.downk.cc/item/5e2eb2552fb38b8c3cad2eb4.png"></p>
+<h6 id="运行结果如下"><a href="#运行结果如下" class="headerlink" title="运行结果如下"></a>运行结果如下</h6><p><img src="https://pic.downk.cc/item/5e2eb29d2fb38b8c3cad3436.png"><br><img src="https://pic.downk.cc/item/5e2eb29d2fb38b8c3cad3438.png"><br><img src="https://pic.downk.cc/item/5e2eb29d2fb38b8c3cad3434.png"></p>
+<h5 id="3-4-7-8-启动Hadoop"><a href="#3-4-7-8-启动Hadoop" class="headerlink" title="3.4.7.8 启动Hadoop"></a>3.4.7.8 启动Hadoop</h5><p>在指定节点上使用以下命令以hdfs启动HDFSNameNode和Datanode  </p>
+<h6 id="①启动HDFS"><a href="#①启动HDFS" class="headerlink" title="①启动HDFS"></a>①启动HDFS</h6><p>在master上启动：sbin/start-dfs.sh(应为NameNode在此机子上)<br><img src="https://pic.downk.cc/item/5e2eb4f32fb38b8c3cad61d1.png"><br><img src="https://pic.downk.cc/item/5e2eb4f32fb38b8c3cad61d4.png"><br><img src="https://pic.downk.cc/item/5e2eb4f32fb38b8c3cad61cb.png"><br><img src="https://pic.downk.cc/item/5e2eb4f32fb38b8c3cad61ce.png"></p>
+<h6 id="②启动YARN"><a href="#②启动YARN" class="headerlink" title="②启动YARN"></a>②启动YARN</h6><p>在master上启动：sbin/start-yarn.sh(应为ResourceManager在此机子上)<br><img src="https://pic.downk.cc/item/5e2eb6192fb38b8c3cad7dc0.png"><br><img src="https://pic.downk.cc/item/5e2eb6192fb38b8c3cad7dc2.png"><br><img src="https://pic.downk.cc/item/5e2eb6b52fb38b8c3cad8b11.png"><br><img src="https://pic.downk.cc/item/5e2eb6b52fb38b8c3cad8b13.png"><br><strong>注意:NameNode和ResourceManger如果不是同一台机器,不能在NameNode上启动YARN,应该在ResouceManager所在的机器上启动YARN</strong></p>
+<p>通过<a href="http://192.168.114.101:50070地址访问出现以下界⾯说明配置成功">http://192.168.114.101:50070地址访问出现以下界⾯说明配置成功</a><br><img src="https://pic.downk.cc/item/5e2eb87b2fb38b8c3cadaf11.png"></p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hadoop/" rel="tag">hadoop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/" rel="tag">集群搭建</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+   
+</article>
+
+    
+    <article
+  id="post-hadoop环境搭建(一)"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2019/09/15/hadoop%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA(%E4%B8%80)/"
+    >Hadoop环境搭建（1）</a> 
+</h2>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2019/09/15/hadoop%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA(%E4%B8%80)/" class="article-date">
+  <time datetime="2019-09-15T08:59:00.000Z" itemprop="datePublished">2019-09-15</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/hadoop/">hadoop</a> / <a class="article-category-link" href="/categories/hadoop/%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/">集群搭建</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="三-Hadoop环境搭建"><a href="#三-Hadoop环境搭建" class="headerlink" title="三.Hadoop环境搭建"></a>三.Hadoop环境搭建</h2><p>Hadoop需要运⾏在Linux操作系统上，当前也可以在Windows上安装运⾏。如果在Windows上运⾏就好⽐开个⼩轿⻋去⽥地⾥耕地。鉴于⼤家已经学习过Linux操作系统，因此⾥对其不再过多赘述，直 接进⾏Linux的安装。  </p>
+<h5 id="⼏个进程说明"><a href="#⼏个进程说明" class="headerlink" title="⼏个进程说明"></a>⼏个进程说明</h5><pre><code>1.namenode
+存储⽂件的元数据，如⽂件名，⽂件⽬录结构，⽂件属性（创建时间、副本数、⽂件权限），以及每个⽂件的块列表和块所在的DataNode的列表信息等。  
+2.datanode  
+在本地⽂件系统存储⽂件块数据，以及块数据的校验和。说⽩了，就是专⻔存真正的数据的
+3.secondaryNamenode  
+他不是NN的备份(但可以做备份),它的主要工作是帮助NN合并edits,fsimage,减少NN启动时间在紧急情况下,可以恢复NameNode SNN执行合并时机    根据配置文件设置的时间间隔fs.checkoint.period默认3600秒    根据配置文件设置editslog大小fs.checkpoint.size规定edits文件的大值默认是64MB
+4.resourceManager
+5.nodeManager</code></pre>
+<h5 id="两种节点"><a href="#两种节点" class="headerlink" title="两种节点"></a>两种节点</h5><pre><code>master
+主节点
+salve
+从节点【数据节点】</code></pre>
+<h3 id="3-1-VMware安装"><a href="#3-1-VMware安装" class="headerlink" title="3.1.VMware安装"></a>3.1.VMware安装</h3><p>VMwareWorkstation，中⽂名“威睿⼯作站”，是⼀款功能强⼤的桌⾯虚拟计算机软件，提供⽤⼾可 在单⼀的桌⾯上同时运⾏不同的操作系统，和进⾏开发、测试、部署新的应⽤程序的最佳解决⽅案。</p>
+<h4 id="3-1-1-VM下载"><a href="#3-1-1-VM下载" class="headerlink" title="3.1.1 VM下载"></a>3.1.1 VM下载</h4><p><a target="_blank" rel="noopener" href="https://download3.vmware.com/software/wkst/file/VMware-workstation-full-15.1.0-13591040.exe">https://download3.vmware.com/software/wkst/file/VMware-workstation-full-15.1.0-13591040.exe</a>  </p>
+<h4 id="3-1-2-VM序列号"><a href="#3-1-2-VM序列号" class="headerlink" title="3.1.2 VM序列号"></a>3.1.2 VM序列号</h4><p>FC7D0-D1YDL-M8DXZ-CYPZE-P2AY6</p>
+<h4 id="3-1-3-VM安装"><a href="#3-1-3-VM安装" class="headerlink" title="3.1.3 VM安装"></a>3.1.3 VM安装</h4><p>略</p>
+<h3 id="3-2-CentOS7下载与安装"><a href="#3-2-CentOS7下载与安装" class="headerlink" title="3.2 CentOS7下载与安装"></a>3.2 CentOS7下载与安装</h3><h4 id="3-2-1-CentOS的下载"><a href="#3-2-1-CentOS的下载" class="headerlink" title="3.2.1 CentOS的下载"></a>3.2.1 CentOS的下载</h4><p><a target="_blank" rel="noopener" href="https://wiki.centos.org/Download">https://wiki.centos.org/Download</a>  </p>
+<h4 id="3-2-2-CentOS安装"><a href="#3-2-2-CentOS安装" class="headerlink" title="3.2.2 CentOS安装"></a>3.2.2 CentOS安装</h4><h3 id="3-3-Hadoop运⾏环境"><a href="#3-3-Hadoop运⾏环境" class="headerlink" title="3.3 Hadoop运⾏环境"></a>3.3 Hadoop运⾏环境</h3><p>Hadoop运⾏环境有三种模式：本地模式，伪分布模式，完全分布式模式</p>
+<h5 id="本地模式（Standalone-Mode）"><a href="#本地模式（Standalone-Mode）" class="headerlink" title="本地模式（Standalone Mode）"></a>本地模式（Standalone Mode）</h5><h6 id="默认情况下，Hadoop即处于该模式，⽤于开发和调式。"><a href="#默认情况下，Hadoop即处于该模式，⽤于开发和调式。" class="headerlink" title="默认情况下，Hadoop即处于该模式，⽤于开发和调式。"></a>默认情况下，Hadoop即处于该模式，⽤于开发和调式。</h6><pre><code>不对配置⽂件进⾏修改。   
+使⽤本地⽂件系统，⽽不是分布式⽂件系统。    
+Hadoop不会启动NameNode、DataNode、SecondaryNameNode、ResourceManager、NodeManager等守护进程，Map()和Reduce()任务作为同⼀个进程的不同部分来执⾏的。   
+⽤于对MapReduce程序的逻辑进⾏调试，确保程序的正确</code></pre>
+<h5 id="伪分布模式（Pseudo-Distributed-Mode）"><a href="#伪分布模式（Pseudo-Distributed-Mode）" class="headerlink" title="伪分布模式（Pseudo-Distributed Mode）"></a>伪分布模式（Pseudo-Distributed Mode）</h5><h6 id="Hadoop的守护进程运⾏在本机机器，模拟⼀个⼩规模的集群"><a href="#Hadoop的守护进程运⾏在本机机器，模拟⼀个⼩规模的集群" class="headerlink" title="Hadoop的守护进程运⾏在本机机器，模拟⼀个⼩规模的集群"></a>Hadoop的守护进程运⾏在本机机器，模拟⼀个⼩规模的集群</h6><pre><code>在⼀台主机模拟⼀个⼩规模的集群，在这种模式下Hadoop使⽤的是分布式⽂件系统，⼀般⽤于程序调试与测试。也可以说伪分布式是完全分布式的⼀个特例。  
+在这种模式下，Hadoop使⽤的是分布式⽂件系统，各个Job由Manager来管理独⽴进程。在单机模式之上增加了代码调试功能，允许检查内存使⽤情况，HDFS输⼊输出，以及守护进程交互。  
+Hadoop启动NameNode、DataNode、SecondaryNameNode、ResourceManager、NodeManager，些守护进程都在同⼀台机器上运⾏，是相互独⽴的Java进程。   需要修改配置⽂件：core-site.xml、hdfs-site.xml、mapred-site.xml、yarn-site.xml。
+格式化⽂件系统</code></pre>
+<h5 id="完全分布式（Cluster-Mode）"><a href="#完全分布式（Cluster-Mode）" class="headerlink" title="完全分布式（Cluster Mode）"></a>完全分布式（Cluster Mode）</h5><h6 id="Hadoop的运⾏在由多台主机搭建的集群上，是真正的⽣产环境。"><a href="#Hadoop的运⾏在由多台主机搭建的集群上，是真正的⽣产环境。" class="headerlink" title="Hadoop的运⾏在由多台主机搭建的集群上，是真正的⽣产环境。"></a>Hadoop的运⾏在由多台主机搭建的集群上，是真正的⽣产环境。</h6><pre><code>在这种模式下，Hadoop在所有的主机上安装JDK、Hadoop、Zookeeper等软件，组成相互连通 的⽹络。  
+主机间设置SSH免密码登录，把各从节点⽣成的公钥添加到主节点的信任列表中。  
+需要修改配置⽂件：core-site.xml、hdfs-site.xml、mapred-site.xml、yarn-site.xml。配置⻅下表
+格式化⽂件系统</code></pre>
+<p><img src="https://pic.downk.cc/item/5e2d83922fb38b8c3c965d66.png"></p>
+<h4 id="3-4-1-集群规划"><a href="#3-4-1-集群规划" class="headerlink" title="3.4.1 集群规划"></a>3.4.1 集群规划</h4><p><img src="https://pic.downk.cc/item/5e2d83ef2fb38b8c3c9664d8.png"></p>
+<h4 id="3-4-2-虚拟机安装"><a href="#3-4-2-虚拟机安装" class="headerlink" title="3.4.2 虚拟机安装"></a>3.4.2 虚拟机安装</h4><p> 请参考3.1 VMware安装</p>
+<h4 id="3-4-3-CentOS安装"><a href="#3-4-3-CentOS安装" class="headerlink" title="3.4.3 CentOS安装"></a>3.4.3 CentOS安装</h4><p>请参考 3.2 CentOS7 下载与安装、</p>
+<h4 id="3-4-4-基本⼯具安装"><a href="#3-4-4-基本⼯具安装" class="headerlink" title="3.4.4 基本⼯具安装"></a>3.4.4 基本⼯具安装</h4><p>由于使⽤的是最⼩化安装，因此⾥需要安装不少软件才能进⾏后续操作</p>
+<h5 id="3-4-4-1-安装Xshell"><a href="#3-4-4-1-安装Xshell" class="headerlink" title="3.4.4.1 安装Xshell"></a>3.4.4.1 安装Xshell</h5><p>在Windows上安装Xshell便于连接Linux系统  </p>
+<h6 id="Xshell的下载"><a href="#Xshell的下载" class="headerlink" title="Xshell的下载"></a>Xshell的下载</h6><p> <a target="_blank" rel="noopener" href="https://www.netsarang.com/zh/xshell-plus-download/">https://www.netsarang.com/zh/xshell-plus-download/</a><br>  填写相应信息，注意邮箱必须准确 Xshell官⽅下载评估版，然后把下载地址的版本号后⾯加个r（即.exe前⾯加个r），即是注册版本。</p>
+<h5 id="3-4-4-2-openssh安装，便于远程上传⽂"><a href="#3-4-4-2-openssh安装，便于远程上传⽂" class="headerlink" title="3.4.4.2 openssh安装，便于远程上传⽂"></a>3.4.4.2 openssh安装，便于远程上传⽂</h5><p>每台电脑都需要执⾏此操作<br><img src="https://pic.downk.cc/item/5e2d858e2fb38b8c3c968ce6.png"></p>
+<h5 id="3-4-4-3-同步时间⼯具"><a href="#3-4-4-3-同步时间⼯具" class="headerlink" title="3.4.4.3 同步时间⼯具"></a>3.4.4.3 同步时间⼯具</h5><p>每台电脑都需要执⾏此操作<br>①安装ntpdate工具<br><img src="https://pic.downk.cc/item/5e2d86882fb38b8c3c96a1e1.png"><br>②设置与网络时间同步<br><img src="https://pic.downk.cc/item/5e2d86882fb38b8c3c96a1e4.png"><br>③系统时间写入硬件时间<br><img src="https://pic.downk.cc/item/5e2d86882fb38b8c3c96a1e6.png"></p>
+<h5 id="3-4-4-4-⽂件上传-rz-下载-sz-⼯具"><a href="#3-4-4-4-⽂件上传-rz-下载-sz-⼯具" class="headerlink" title="3.4.4.4 ⽂件上传(rz)下载(sz)⼯具"></a>3.4.4.4 ⽂件上传(rz)下载(sz)⼯具</h5><p>可以在Xshell⼯具中通过rz调出上传⽂件的窗⼝进⾏⽂件上传，也可以通过sz⽂件名下载某⼀个⽂件。<br>不安装也可以<br><img src="https://pic.downk.cc/item/5e2d87012fb38b8c3c96ab67.png"></p>
+<h5 id="3-4-4-5-安装⽹络下载⼯具wget"><a href="#3-4-4-5-安装⽹络下载⼯具wget" class="headerlink" title="3.4.4.5 安装⽹络下载⼯具wget"></a>3.4.4.5 安装⽹络下载⼯具wget</h5><p>其中⼀台安装即可<br><img src="https://pic.downk.cc/item/5e2d87b62fb38b8c3c96ba5a.png"></p>
+<h5 id="3-4-4-6-关闭防⽕墙"><a href="#3-4-4-6-关闭防⽕墙" class="headerlink" title="3.4.4.6 关闭防⽕墙"></a>3.4.4.6 关闭防⽕墙</h5><p>每台均需要执⾏此操作<br>①查看防火墙开启状态<br><img src="https://pic.downk.cc/item/5e2d8b2c2fb38b8c3c9701b4.png"><br>②关闭防火墙<br><img src="https://pic.downk.cc/item/5e2d8b2c2fb38b8c3c9701b6.png"><br>③禁止开机启动防火墙<br><img src="https://pic.downk.cc/item/5e2d8b2c2fb38b8c3c9701b8.png"><br>④开启防火墙<br><img src="https://pic.downk.cc/item/5e2d8b2c2fb38b8c3c9701ba.png"><br>⑤设置开机启动防火墙<br><img src="https://pic.downk.cc/item/5e2d8b2c2fb38b8c3c9701b2.png"><br>⑥重启防火墙<br><img src="https://pic.downk.cc/item/5e2d8b5a2fb38b8c3c970610.png"></p>
+<h4 id="3-4-5-配置SSH免密码登录"><a href="#3-4-5-配置SSH免密码登录" class="headerlink" title="3.4.5 配置SSH免密码登录"></a>3.4.5 配置SSH免密码登录</h4><p>配置免密码登录的⽬的是为了能够让主机之间相互信任，不需要密码即可访问。  </p>
+<h5 id="3-4-5-1-修改hosts⽂件，添加以下内容，三台主机均执⾏此操作"><a href="#3-4-5-1-修改hosts⽂件，添加以下内容，三台主机均执⾏此操作" class="headerlink" title="3.4.5.1 修改hosts⽂件，添加以下内容，三台主机均执⾏此操作"></a>3.4.5.1 修改hosts⽂件，添加以下内容，三台主机均执⾏此操作</h5><p><img src="https://pic.downk.cc/item/5e2d8c322fb38b8c3c971726.png"><br><img src="https://pic.downk.cc/item/5e2d8c322fb38b8c3c971729.png"></p>
+<h5 id="3-4-5-2-配置SSH"><a href="#3-4-5-2-配置SSH" class="headerlink" title="3.4.5.2 配置SSH"></a>3.4.5.2 配置SSH</h5><p>①输入以下命令，一路回车，用以产生公钥和秘钥<br><img src="https://pic.downk.cc/item/5e2e49b92fb38b8c3ca50acb.png"><br>②每台机器均进入~/.ssh 目录进行操作<br><img src="https://pic.downk.cc/item/5e2e49b92fb38b8c3ca50acd.png"><br>③将每台机器上的id_rsa.pub公钥内容复制到authorized_keys文件中<br><img src="https://pic.downk.cc/item/5e2e49b92fb38b8c3ca50acf.png"><br>④.将公钥拷贝到要免密登录的目标机器上<br>ssh-copy-id master<br><img src="https://pic.downk.cc/item/5e2e58fb2fb38b8c3ca62eda.png"><br>ssh-copy-id slave1<br><img src="https://pic.downk.cc/item/5e2e58fb2fb38b8c3ca62edc.png"><br>ssh-copy-id slave2<br><img src="https://pic.downk.cc/item/5e2e58fb2fb38b8c3ca62ed6.png"><br>//注意3台都需要配置免密登录,每一个用户也都得配置一遍<br>查看slave2上的authorized_keys文件内容，类似如下即可<br><img src="https://pic.downk.cc/item/5e2e58fb2fb38b8c3ca62ed8.png"><br><img src="https://pic.downk.cc/item/5e2e599d2fb38b8c3ca63ae7.png"></p>
+<h4 id="3-4-6-安装Java环境"><a href="#3-4-6-安装Java环境" class="headerlink" title="3.4.6 安装Java环境"></a>3.4.6 安装Java环境</h4><h5 id="3-4-6-1-JDK下载"><a href="#3-4-6-1-JDK下载" class="headerlink" title="3.4.6.1 JDK下载"></a>3.4.6.1 JDK下载</h5><p><a target="_blank" rel="noopener" href="https://www.oracle.com/technetwork/java/javase/archive-139210.html">https://www.oracle.com/technetwork/java/javase/archive-139210.html</a><br><img src="https://pic.downk.cc/item/5e2e5a202fb38b8c3ca644ef.png"></p>
+<h5 id="3-4-6-2-原JDK卸载"><a href="#3-4-6-2-原JDK卸载" class="headerlink" title="3.4.6.2 原JDK卸载"></a>3.4.6.2 原JDK卸载</h5><p>如果CentOS中已经安装的有JDK，则需要先卸载当前JDK，重新安装新的JDK。其实不卸载也可以正常使⽤。如果想卸载，就看下⾯的代码即可。<br>①查询当前所有安装的jdk版本<br>②如果什么都没有展示说明没有已安装的jdk，则无需卸载，如果出现类似以下jdk，则卸载之<br><img src="https://pic.downk.cc/item/5e2e5b1c2fb38b8c3ca6592e.png"><br>③卸载jdk，使用下面的方法卸载即可<br><img src="https://pic.downk.cc/item/5e2e5b1c2fb38b8c3ca65930.png"><br>④再次查询当前所有安装的jdk版本</p>
+<h5 id="3-4-6-3-安装JDK"><a href="#3-4-6-3-安装JDK" class="headerlink" title="3.4.6.3 安装JDK"></a>3.4.6.3 安装JDK</h5><h6 id="①在slave1主节点上创建指定目录"><a href="#①在slave1主节点上创建指定目录" class="headerlink" title="①在slave1主节点上创建指定目录"></a>①在slave1主节点上创建指定目录</h6><h6 id="②进入到Java目录"><a href="#②进入到Java目录" class="headerlink" title="②进入到Java目录"></a>②进入到Java目录</h6><h6 id="③使用rz命令从windows主机上传jdk压缩包到slave1"><a href="#③使用rz命令从windows主机上传jdk压缩包到slave1" class="headerlink" title="③使用rz命令从windows主机上传jdk压缩包到slave1"></a>③使用rz命令从windows主机上传jdk压缩包到slave1</h6><p><img src="https://pic.downk.cc/item/5e2e5e632fb38b8c3ca69947.png"></p>
+<h6 id="④解压到当前目录"><a href="#④解压到当前目录" class="headerlink" title="④解压到当前目录"></a>④解压到当前目录</h6><p><img src="https://pic.downk.cc/item/5e2e5e632fb38b8c3ca69949.png"></p>
+<h6 id="⑤配置环境变量"><a href="#⑤配置环境变量" class="headerlink" title="⑤配置环境变量"></a>⑤配置环境变量</h6><p><img src="https://pic.downk.cc/item/5e2e5e632fb38b8c3ca6994c.png"></p>
+<h6 id="⑥在该文件后面追加一下内容"><a href="#⑥在该文件后面追加一下内容" class="headerlink" title="⑥在该文件后面追加一下内容"></a>⑥在该文件后面追加一下内容</h6><pre><code>export JAVA_HOME=/opt/SoftWare/Java/jdk1.8.0_25
+export JRE_HOME=/opt/SoftWare/Java/jdk1.8.0_25/jre 
+export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib/rt.jar 
+export PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin</code></pre>
+<p><img src="https://pic.downk.cc/item/5e2e5e632fb38b8c3ca6994e.png"></p>
+<h6 id="⑦使刚才的设置生效"><a href="#⑦使刚才的设置生效" class="headerlink" title="⑦使刚才的设置生效"></a>⑦使刚才的设置生效</h6><p><img src="https://pic.downk.cc/item/5e2e5e932fb38b8c3ca69e24.png"></p>
+<h6 id="⑧检测是否配置成"><a href="#⑧检测是否配置成" class="headerlink" title="⑧检测是否配置成"></a>⑧检测是否配置成</h6><p><img src="https://pic.downk.cc/item/5e2e5e932fb38b8c3ca69e26.png"></p>
+<h6 id="⑨其他主机同样的操作进行即可https-hexo-io-docs-one-command-deployment-html"><a href="#⑨其他主机同样的操作进行即可https-hexo-io-docs-one-command-deployment-html" class="headerlink" title="⑨其他主机同样的操作进行即可https://hexo.io/docs/one-command-deployment.html)"></a>⑨其他主机同样的操作进行即可<a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">https://hexo.io/docs/one-command-deployment.html</a>)</h6> 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hadoop/" rel="tag">hadoop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/" rel="tag">集群搭建</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+   
+</article>
+
+    
+  </article>
+  
+
+  
+</section>
+</div>
+
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2015-2020
+        <i class="ri-heart-fill heart_icon"></i> John Doe
+      </li>
     </ul>
-	<span class="target"></span>
-	<center>
-	<div class="hitokoto">
-		<span class="typed" id="hitokoto" data-st="true"></span>
-	</div>
-	</center>
-	
-	<p class="footerlinks">
-		<a href="#" class="iconfont icon-null"></a>
-		
-            <a href="/" title="facebook" class="iconfont icon-facebook" target="_blank" rel="noopener"> </a>
+    <ul>
+      <li>
         
-            <a href="/" title="twitter" class="iconfont icon-twitter" target="_blank" rel="noopener"> </a>
         
-            <a href="/" title="github" class="iconfont icon-github" target="_blank" rel="noopener"> </a>
         
-            <a href="/img/logo.png" title="wechat" class="iconfont icon-wechat" target="_blank" rel="noopener"> </a>
+        Powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+        <span class="division">|</span>
+        Theme - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
         
-            <a href="mailto:xxxx@gmail.com" title="email" class="iconfont icon-email" target="_blank" rel="noopener"> </a>
+      </li>
+    </ul>
+    <ul>
+      <li>
         
-		<a href="#" class="iconfont icon-null"></a>
-	</p>
-	
-    <p id="copyright">
-        &copy; 2020 John Doe.
-        <span> | </span>Powered by <a href="https://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
-        <span> | </span>Theme <a href="https://github.com/Fechin/hexo-theme-diaspora" title="Diaspora" target="_blank" rel="noopener">Diaspora</a> by Fechin
-		
-		<span> | </span><a rel="nofollow" href="http://www.beian.miit.gov.cn" target="_blank">冀ICP备xxxxxxx号</a>
-		
-    </p>
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></s>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
 </div>
 
-<div id="container">
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="Hexo"></a>
+  </div>
+  
+  <ul class="nav nav-main">
     
-<div id="screen">
-    <div id="mark">
-        <div class="layer" data-depth="0.4">
-            <img src="/img/welcome-cover" id="cover" crossorigin="anonymous" width="1920" height="1080">
-        </div>
-    </div>
-    <div id="vibrant">
-        <svg viewBox="0 0 2880 1620" height="100%" preserveAspectRatio="xMaxYMax slice">
-            <polygon opacity="0.7" points="2000,1620 0,1620 0,0 600,0 "/>
-        </svg>
-        <div></div>
-    </div>
-    <div id="header">
-        <div>
-            <a class="image-logo" href="/"></a>
-			
-            <div class="iconfont icon-menu switchmenu"></div>
-        </div>
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags/%E6%97%85%E8%A1%8C/">旅行</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="http://shenyu-vip.lofter.com">摄影</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2019/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/alipay.jpg">
+      <span class="reward-type">支付宝</span>
     </div>
     
-    <div id="post0">
-        <p>九月 15, 2020</p>
-        <h2><a href="/2020/09/15/HDFS%E7%9A%84API%E6%93%8D%E4%BD%9C/" title="HDFS的API操作" class="posttitle">HDFS的API操作</a></h2>
-        <p class="summary">HDFS的API操作HDFS文件上传(测试参数优先级)12345678910public void CopyFro...</p>
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/wechat.jpg">
+      <span class="reward-type">微信</span>
     </div>
     
+  </div>
 </div>
-
-    <div id="primary">
-        
-<div class="post">
-    <a href="/2020/09/15/hadoop%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA-%E4%BA%8C/" title="hadoop环境搭建(二)">
-        <img src="http://pic.netbian.com/uploads/allimg/180531/211429-1527772469e7c6.jpg" class="cover" width="680" height="440">
-    </a>
-    <div class="else">
-        <p>九月 15, 2020</p>
-        <h3><a href="/2020/09/15/hadoop%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA-%E4%BA%8C/" title="hadoop环境搭建(二)" class="posttitle">hadoop环境搭建(二)</a></h3>
-        <p>3.4.7 安装Hadoop环境3.4.7.1 下载Hadoop安装包下载地址：https://hadoop.apache.org/releases.ht...</p>
-    </div>
-</div>
-
-
-<div class="post">
-    <a href="/2019/09/15/hadoop%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA(%E4%B8%80)/" title="Hadoop环境搭建（1）">
-        <img src="http://pic.netbian.com/uploads/allimg/190217/185005-155040060514a6.jpg" class="cover" width="680" height="440">
-    </a>
-    <div class="else">
-        <p>九月 15, 2019</p>
-        <h3><a href="/2019/09/15/hadoop%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA(%E4%B8%80)/" title="Hadoop环境搭建（1）" class="posttitle">Hadoop环境搭建（1）</a></h3>
-        <p>三.Hadoop环境搭建Hadoop需要运⾏在Linux操作系统上，当前也可以在Windows上安装运⾏。如果在Windows上运⾏就好⽐开个⼩轿⻋去⽥地...</p>
-    </div>
-</div>
-
-
-    </div>
     
-</div>
-<div id="preview"></div>
+<script src="/js/jquery-2.0.3.min.js"></script>
 
 
+<script src="/js/lazyload.min.js"></script>
 
-</body>
+<!-- Tocbot -->
 
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
 
-<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
-<script src="/js/plugin.js"></script>
-<script src="/js/typed.js"></script>
-<script src="/js/diaspora.js"></script>
+<script src="/dist/main.js"></script>
 
-
-<link rel="stylesheet" href="/photoswipe/photoswipe.css">
-<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
-
-
-<script src="/photoswipe/photoswipe.min.js"></script>
-<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
-
+<!-- ImageViewer -->
 
 <!-- Root element of PhotoSwipe. Must have class pswp. -->
 <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
     <!-- Background of PhotoSwipe. 
          It's a separate element as animating opacity is faster than rgba(). -->
     <div class="pswp__bg"></div>
+
     <!-- Slides wrapper with overflow:hidden. -->
     <div class="pswp__scroll-wrap">
+
         <!-- Container that holds slides. 
             PhotoSwipe keeps only 3 of them in the DOM to save memory.
             Don't modify these 3 pswp__item elements, data is added later on. -->
@@ -185,42 +683,177 @@
             <div class="pswp__item"></div>
             <div class="pswp__item"></div>
         </div>
+
         <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
         <div class="pswp__ui pswp__ui--hidden">
+
             <div class="pswp__top-bar">
+
                 <!--  Controls are self-explanatory. Order can be changed. -->
+
                 <div class="pswp__counter"></div>
+
                 <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
                 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
                 <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
                 <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
                 <!-- element will get class pswp__preloader--active when preloader is running -->
                 <div class="pswp__preloader">
                     <div class="pswp__preloader__icn">
-                      <div class="pswp__preloader__cut">
-                        <div class="pswp__preloader__donut"></div>
-                      </div>
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
                     </div>
                 </div>
             </div>
+
             <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div> 
+                <div class="pswp__share-tooltip"></div>
             </div>
+
             <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
             </button>
+
             <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
             </button>
+
             <div class="pswp__caption">
                 <div class="pswp__caption__center"></div>
             </div>
+
         </div>
+
     </div>
+
 </div>
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
 
 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
 
 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+  </div>
+</body>
 
 </html>
