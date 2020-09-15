@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>article title</title>
+    <url>/2020/09/15/article-title/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2020/09/15/hadoop%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%EF%BC%88%E4%B8%80%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="三-Hadoop环境搭建"><a href="#三-Hadoop环境搭建" class="headerlink" title="三.Hadoop环境搭建"></a>三.Hadoop环境搭建</h2><p>Hadoop需要运⾏在Linux操作系统上，当前也可以在Windows上安装运⾏。如果在Windows上运⾏就好⽐开个⼩轿⻋去⽥地⾥耕地。鉴于⼤家已经学习过Linux操作系统，因此⾥对其不再过多赘述，直 接进⾏Linux的安装。  </p>
+<h5 id="⼏个进程说明"><a href="#⼏个进程说明" class="headerlink" title="⼏个进程说明"></a>⼏个进程说明</h5><pre><code>1.namenode
+存储⽂件的元数据，如⽂件名，⽂件⽬录结构，⽂件属性（创建时间、副本数、⽂件权限），以及每个⽂件的块列表和块所在的DataNode的列表信息等。  
+2.datanode  
+在本地⽂件系统存储⽂件块数据，以及块数据的校验和。说⽩了，就是专⻔存真正的数据的
+3.secondaryNamenode  
+他不是NN的备份(但可以做备份),它的主要工作是帮助NN合并edits,fsimage,减少NN启动时间在紧急情况下,可以恢复NameNode SNN执行合并时机    根据配置文件设置的时间间隔fs.checkoint.period默认3600秒    根据配置文件设置editslog大小fs.checkpoint.size规定edits文件的大值默认是64MB
+4.resourceManager
+5.nodeManager</code></pre>
+<h5 id="两种节点"><a href="#两种节点" class="headerlink" title="两种节点"></a>两种节点</h5><pre><code>master
+主节点
+salve
+从节点【数据节点】</code></pre>
+<h3 id="3-1-VMware安装"><a href="#3-1-VMware安装" class="headerlink" title="3.1.VMware安装"></a>3.1.VMware安装</h3><p>VMwareWorkstation，中⽂名“威睿⼯作站”，是⼀款功能强⼤的桌⾯虚拟计算机软件，提供⽤⼾可 在单⼀的桌⾯上同时运⾏不同的操作系统，和进⾏开发、测试、部署新的应⽤程序的最佳解决⽅案。</p>
+<h4 id="3-1-1-VM下载"><a href="#3-1-1-VM下载" class="headerlink" title="3.1.1 VM下载"></a>3.1.1 VM下载</h4><p><a href="https://download3.vmware.com/software/wkst/file/VMware-workstation-full-15.1.0-13591040.exe">https://download3.vmware.com/software/wkst/file/VMware-workstation-full-15.1.0-13591040.exe</a>  </p>
+<h4 id="3-1-2-VM序列号"><a href="#3-1-2-VM序列号" class="headerlink" title="3.1.2 VM序列号"></a>3.1.2 VM序列号</h4><p>FC7D0-D1YDL-M8DXZ-CYPZE-P2AY6</p>
+<h4 id="3-1-3-VM安装"><a href="#3-1-3-VM安装" class="headerlink" title="3.1.3 VM安装"></a>3.1.3 VM安装</h4><p>略</p>
+<h3 id="3-2-CentOS7下载与安装"><a href="#3-2-CentOS7下载与安装" class="headerlink" title="3.2 CentOS7下载与安装"></a>3.2 CentOS7下载与安装</h3><h4 id="3-2-1-CentOS的下载"><a href="#3-2-1-CentOS的下载" class="headerlink" title="3.2.1 CentOS的下载"></a>3.2.1 CentOS的下载</h4><p><a href="https://wiki.centos.org/Download">https://wiki.centos.org/Download</a>  </p>
+<h4 id="3-2-2-CentOS安装"><a href="#3-2-2-CentOS安装" class="headerlink" title="3.2.2 CentOS安装"></a>3.2.2 CentOS安装</h4><h3 id="3-3-Hadoop运⾏环境"><a href="#3-3-Hadoop运⾏环境" class="headerlink" title="3.3 Hadoop运⾏环境"></a>3.3 Hadoop运⾏环境</h3><p>Hadoop运⾏环境有三种模式：本地模式，伪分布模式，完全分布式模式</p>
+<h5 id="本地模式（Standalone-Mode）"><a href="#本地模式（Standalone-Mode）" class="headerlink" title="本地模式（Standalone Mode）"></a>本地模式（Standalone Mode）</h5><h6 id="默认情况下，Hadoop即处于该模式，⽤于开发和调式。"><a href="#默认情况下，Hadoop即处于该模式，⽤于开发和调式。" class="headerlink" title="默认情况下，Hadoop即处于该模式，⽤于开发和调式。"></a>默认情况下，Hadoop即处于该模式，⽤于开发和调式。</h6><pre><code>不对配置⽂件进⾏修改。   
+使⽤本地⽂件系统，⽽不是分布式⽂件系统。    
+Hadoop不会启动NameNode、DataNode、SecondaryNameNode、ResourceManager、NodeManager等守护进程，Map()和Reduce()任务作为同⼀个进程的不同部分来执⾏的。   
+⽤于对MapReduce程序的逻辑进⾏调试，确保程序的正确</code></pre>
+<h5 id="伪分布模式（Pseudo-Distributed-Mode）"><a href="#伪分布模式（Pseudo-Distributed-Mode）" class="headerlink" title="伪分布模式（Pseudo-Distributed Mode）"></a>伪分布模式（Pseudo-Distributed Mode）</h5><h6 id="Hadoop的守护进程运⾏在本机机器，模拟⼀个⼩规模的集群"><a href="#Hadoop的守护进程运⾏在本机机器，模拟⼀个⼩规模的集群" class="headerlink" title="Hadoop的守护进程运⾏在本机机器，模拟⼀个⼩规模的集群"></a>Hadoop的守护进程运⾏在本机机器，模拟⼀个⼩规模的集群</h6><pre><code>在⼀台主机模拟⼀个⼩规模的集群，在这种模式下Hadoop使⽤的是分布式⽂件系统，⼀般⽤于程序调试与测试。也可以说伪分布式是完全分布式的⼀个特例。  
+在这种模式下，Hadoop使⽤的是分布式⽂件系统，各个Job由Manager来管理独⽴进程。在单机模式之上增加了代码调试功能，允许检查内存使⽤情况，HDFS输⼊输出，以及守护进程交互。  
+Hadoop启动NameNode、DataNode、SecondaryNameNode、ResourceManager、NodeManager，些守护进程都在同⼀台机器上运⾏，是相互独⽴的Java进程。   需要修改配置⽂件：core-site.xml、hdfs-site.xml、mapred-site.xml、yarn-site.xml。
+格式化⽂件系统</code></pre>
+<h5 id="完全分布式（Cluster-Mode）"><a href="#完全分布式（Cluster-Mode）" class="headerlink" title="完全分布式（Cluster Mode）"></a>完全分布式（Cluster Mode）</h5><h6 id="Hadoop的运⾏在由多台主机搭建的集群上，是真正的⽣产环境。"><a href="#Hadoop的运⾏在由多台主机搭建的集群上，是真正的⽣产环境。" class="headerlink" title="Hadoop的运⾏在由多台主机搭建的集群上，是真正的⽣产环境。"></a>Hadoop的运⾏在由多台主机搭建的集群上，是真正的⽣产环境。</h6><pre><code>在这种模式下，Hadoop在所有的主机上安装JDK、Hadoop、Zookeeper等软件，组成相互连通 的⽹络。  
+主机间设置SSH免密码登录，把各从节点⽣成的公钥添加到主节点的信任列表中。  
+需要修改配置⽂件：core-site.xml、hdfs-site.xml、mapred-site.xml、yarn-site.xml。配置⻅下表
+格式化⽂件系统</code></pre>
+<p><img src="https://pic.downk.cc/item/5e2d83922fb38b8c3c965d66.png"></p>
+<h4 id="3-4-1-集群规划"><a href="#3-4-1-集群规划" class="headerlink" title="3.4.1 集群规划"></a>3.4.1 集群规划</h4><p><img src="https://pic.downk.cc/item/5e2d83ef2fb38b8c3c9664d8.png"></p>
+<h4 id="3-4-2-虚拟机安装"><a href="#3-4-2-虚拟机安装" class="headerlink" title="3.4.2 虚拟机安装"></a>3.4.2 虚拟机安装</h4><p> 请参考3.1 VMware安装</p>
+<h4 id="3-4-3-CentOS安装"><a href="#3-4-3-CentOS安装" class="headerlink" title="3.4.3 CentOS安装"></a>3.4.3 CentOS安装</h4><p>请参考 3.2 CentOS7 下载与安装、</p>
+<h4 id="3-4-4-基本⼯具安装"><a href="#3-4-4-基本⼯具安装" class="headerlink" title="3.4.4 基本⼯具安装"></a>3.4.4 基本⼯具安装</h4><p>由于使⽤的是最⼩化安装，因此⾥需要安装不少软件才能进⾏后续操作</p>
+<h5 id="3-4-4-1-安装Xshell"><a href="#3-4-4-1-安装Xshell" class="headerlink" title="3.4.4.1 安装Xshell"></a>3.4.4.1 安装Xshell</h5><p>在Windows上安装Xshell便于连接Linux系统  </p>
+<h6 id="Xshell的下载"><a href="#Xshell的下载" class="headerlink" title="Xshell的下载"></a>Xshell的下载</h6><p> <a href="https://www.netsarang.com/zh/xshell-plus-download/">https://www.netsarang.com/zh/xshell-plus-download/</a><br>  填写相应信息，注意邮箱必须准确 Xshell官⽅下载评估版，然后把下载地址的版本号后⾯加个r（即.exe前⾯加个r），即是注册版本。</p>
+<h5 id="3-4-4-2-openssh安装，便于远程上传⽂"><a href="#3-4-4-2-openssh安装，便于远程上传⽂" class="headerlink" title="3.4.4.2 openssh安装，便于远程上传⽂"></a>3.4.4.2 openssh安装，便于远程上传⽂</h5><p>每台电脑都需要执⾏此操作<br><img src="https://pic.downk.cc/item/5e2d858e2fb38b8c3c968ce6.png"></p>
+<h5 id="3-4-4-3-同步时间⼯具"><a href="#3-4-4-3-同步时间⼯具" class="headerlink" title="3.4.4.3 同步时间⼯具"></a>3.4.4.3 同步时间⼯具</h5><p>每台电脑都需要执⾏此操作<br>①安装ntpdate工具<br><img src="https://pic.downk.cc/item/5e2d86882fb38b8c3c96a1e1.png"><br>②设置与网络时间同步<br><img src="https://pic.downk.cc/item/5e2d86882fb38b8c3c96a1e4.png"><br>③系统时间写入硬件时间<br><img src="https://pic.downk.cc/item/5e2d86882fb38b8c3c96a1e6.png"></p>
+<h5 id="3-4-4-4-⽂件上传-rz-下载-sz-⼯具"><a href="#3-4-4-4-⽂件上传-rz-下载-sz-⼯具" class="headerlink" title="3.4.4.4 ⽂件上传(rz)下载(sz)⼯具"></a>3.4.4.4 ⽂件上传(rz)下载(sz)⼯具</h5><p>可以在Xshell⼯具中通过rz调出上传⽂件的窗⼝进⾏⽂件上传，也可以通过sz⽂件名下载某⼀个⽂件。<br>不安装也可以<br><img src="https://pic.downk.cc/item/5e2d87012fb38b8c3c96ab67.png"></p>
+<h5 id="3-4-4-5-安装⽹络下载⼯具wget"><a href="#3-4-4-5-安装⽹络下载⼯具wget" class="headerlink" title="3.4.4.5 安装⽹络下载⼯具wget"></a>3.4.4.5 安装⽹络下载⼯具wget</h5><p>其中⼀台安装即可<br><img src="https://pic.downk.cc/item/5e2d87b62fb38b8c3c96ba5a.png"></p>
+<h5 id="3-4-4-6-关闭防⽕墙"><a href="#3-4-4-6-关闭防⽕墙" class="headerlink" title="3.4.4.6 关闭防⽕墙"></a>3.4.4.6 关闭防⽕墙</h5><p>每台均需要执⾏此操作<br>①查看防火墙开启状态<br><img src="https://pic.downk.cc/item/5e2d8b2c2fb38b8c3c9701b4.png"><br>②关闭防火墙<br><img src="https://pic.downk.cc/item/5e2d8b2c2fb38b8c3c9701b6.png"><br>③禁止开机启动防火墙<br><img src="https://pic.downk.cc/item/5e2d8b2c2fb38b8c3c9701b8.png"><br>④开启防火墙<br><img src="https://pic.downk.cc/item/5e2d8b2c2fb38b8c3c9701ba.png"><br>⑤设置开机启动防火墙<br><img src="https://pic.downk.cc/item/5e2d8b2c2fb38b8c3c9701b2.png"><br>⑥重启防火墙<br><img src="https://pic.downk.cc/item/5e2d8b5a2fb38b8c3c970610.png"></p>
+<h4 id="3-4-5-配置SSH免密码登录"><a href="#3-4-5-配置SSH免密码登录" class="headerlink" title="3.4.5 配置SSH免密码登录"></a>3.4.5 配置SSH免密码登录</h4><p>配置免密码登录的⽬的是为了能够让主机之间相互信任，不需要密码即可访问。  </p>
+<h5 id="3-4-5-1-修改hosts⽂件，添加以下内容，三台主机均执⾏此操作"><a href="#3-4-5-1-修改hosts⽂件，添加以下内容，三台主机均执⾏此操作" class="headerlink" title="3.4.5.1 修改hosts⽂件，添加以下内容，三台主机均执⾏此操作"></a>3.4.5.1 修改hosts⽂件，添加以下内容，三台主机均执⾏此操作</h5><p><img src="https://pic.downk.cc/item/5e2d8c322fb38b8c3c971726.png"><br><img src="https://pic.downk.cc/item/5e2d8c322fb38b8c3c971729.png"></p>
+<h5 id="3-4-5-2-配置SSH"><a href="#3-4-5-2-配置SSH" class="headerlink" title="3.4.5.2 配置SSH"></a>3.4.5.2 配置SSH</h5><p>①输入以下命令，一路回车，用以产生公钥和秘钥<br><img src="https://pic.downk.cc/item/5e2e49b92fb38b8c3ca50acb.png"><br>②每台机器均进入~/.ssh 目录进行操作<br><img src="https://pic.downk.cc/item/5e2e49b92fb38b8c3ca50acd.png"><br>③将每台机器上的id_rsa.pub公钥内容复制到authorized_keys文件中<br><img src="https://pic.downk.cc/item/5e2e49b92fb38b8c3ca50acf.png"><br>④.将公钥拷贝到要免密登录的目标机器上<br>ssh-copy-id master<br><img src="https://pic.downk.cc/item/5e2e58fb2fb38b8c3ca62eda.png"><br>ssh-copy-id slave1<br><img src="https://pic.downk.cc/item/5e2e58fb2fb38b8c3ca62edc.png"><br>ssh-copy-id slave2<br><img src="https://pic.downk.cc/item/5e2e58fb2fb38b8c3ca62ed6.png"><br>//注意3台都需要配置免密登录,每一个用户也都得配置一遍<br>查看slave2上的authorized_keys文件内容，类似如下即可<br><img src="https://pic.downk.cc/item/5e2e58fb2fb38b8c3ca62ed8.png"><br><img src="https://pic.downk.cc/item/5e2e599d2fb38b8c3ca63ae7.png"></p>
+<h4 id="3-4-6-安装Java环境"><a href="#3-4-6-安装Java环境" class="headerlink" title="3.4.6 安装Java环境"></a>3.4.6 安装Java环境</h4><h5 id="3-4-6-1-JDK下载"><a href="#3-4-6-1-JDK下载" class="headerlink" title="3.4.6.1 JDK下载"></a>3.4.6.1 JDK下载</h5><p><a href="https://www.oracle.com/technetwork/java/javase/archive-139210.html">https://www.oracle.com/technetwork/java/javase/archive-139210.html</a><br><img src="https://pic.downk.cc/item/5e2e5a202fb38b8c3ca644ef.png"></p>
+<h5 id="3-4-6-2-原JDK卸载"><a href="#3-4-6-2-原JDK卸载" class="headerlink" title="3.4.6.2 原JDK卸载"></a>3.4.6.2 原JDK卸载</h5><p>如果CentOS中已经安装的有JDK，则需要先卸载当前JDK，重新安装新的JDK。其实不卸载也可以正常使⽤。如果想卸载，就看下⾯的代码即可。<br>①查询当前所有安装的jdk版本<br>②如果什么都没有展示说明没有已安装的jdk，则无需卸载，如果出现类似以下jdk，则卸载之<br><img src="https://pic.downk.cc/item/5e2e5b1c2fb38b8c3ca6592e.png"><br>③卸载jdk，使用下面的方法卸载即可<br><img src="https://pic.downk.cc/item/5e2e5b1c2fb38b8c3ca65930.png"><br>④再次查询当前所有安装的jdk版本</p>
+<h5 id="3-4-6-3-安装JDK"><a href="#3-4-6-3-安装JDK" class="headerlink" title="3.4.6.3 安装JDK"></a>3.4.6.3 安装JDK</h5><h6 id="①在slave1主节点上创建指定目录"><a href="#①在slave1主节点上创建指定目录" class="headerlink" title="①在slave1主节点上创建指定目录"></a>①在slave1主节点上创建指定目录</h6><h6 id="②进入到Java目录"><a href="#②进入到Java目录" class="headerlink" title="②进入到Java目录"></a>②进入到Java目录</h6><h6 id="③使用rz命令从windows主机上传jdk压缩包到slave1"><a href="#③使用rz命令从windows主机上传jdk压缩包到slave1" class="headerlink" title="③使用rz命令从windows主机上传jdk压缩包到slave1"></a>③使用rz命令从windows主机上传jdk压缩包到slave1</h6><p><img src="https://pic.downk.cc/item/5e2e5e632fb38b8c3ca69947.png"></p>
+<h6 id="④解压到当前目录"><a href="#④解压到当前目录" class="headerlink" title="④解压到当前目录"></a>④解压到当前目录</h6><p><img src="https://pic.downk.cc/item/5e2e5e632fb38b8c3ca69949.png"></p>
+<h6 id="⑤配置环境变量"><a href="#⑤配置环境变量" class="headerlink" title="⑤配置环境变量"></a>⑤配置环境变量</h6><p><img src="https://pic.downk.cc/item/5e2e5e632fb38b8c3ca6994c.png"></p>
+<h6 id="⑥在该文件后面追加一下内容"><a href="#⑥在该文件后面追加一下内容" class="headerlink" title="⑥在该文件后面追加一下内容"></a>⑥在该文件后面追加一下内容</h6><pre><code>export JAVA_HOME=/opt/SoftWare/Java/jdk1.8.0_25
+export JRE_HOME=/opt/SoftWare/Java/jdk1.8.0_25/jre 
+export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib/rt.jar 
+export PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin</code></pre>
+<p><img src="https://pic.downk.cc/item/5e2e5e632fb38b8c3ca6994e.png"></p>
+<h6 id="⑦使刚才的设置生效"><a href="#⑦使刚才的设置生效" class="headerlink" title="⑦使刚才的设置生效"></a>⑦使刚才的设置生效</h6><p><img src="https://pic.downk.cc/item/5e2e5e932fb38b8c3ca69e24.png"></p>
+<h6 id="⑧检测是否配置成"><a href="#⑧检测是否配置成" class="headerlink" title="⑧检测是否配置成"></a>⑧检测是否配置成</h6><p><img src="https://pic.downk.cc/item/5e2e5e932fb38b8c3ca69e26.png"></p>
+<h6 id="⑨其他主机同样的操作进行即可"><a href="#⑨其他主机同样的操作进行即可" class="headerlink" title="⑨其他主机同样的操作进行即可"></a>⑨其他主机同样的操作进行即可</h6>]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2020/09/15/hadoop%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
+    <content><![CDATA[<h4 id="3-4-7-安装Hadoop环境"><a href="#3-4-7-安装Hadoop环境" class="headerlink" title="3.4.7 安装Hadoop环境"></a>3.4.7 安装Hadoop环境</h4><h5 id="3-4-7-1-下载Hadoop安装包"><a href="#3-4-7-1-下载Hadoop安装包" class="headerlink" title="3.4.7.1 下载Hadoop安装包"></a>3.4.7.1 下载Hadoop安装包</h5><p>下载地址：<a href="https://hadoop.apache.org/releases.html">https://hadoop.apache.org/releases.html</a></p>
+<h5 id="3-4-7-2-上传⽂件到服务器"><a href="#3-4-7-2-上传⽂件到服务器" class="headerlink" title="3.4.7.2 上传⽂件到服务器"></a>3.4.7.2 上传⽂件到服务器</h5><h6 id="①上传"><a href="#①上传" class="headerlink" title="①上传"></a>①上传</h6><h6 id="②解压"><a href="#②解压" class="headerlink" title="②解压"></a>②解压</h6><p><img src="https://pic.downk.cc/item/5e2e67e52fb38b8c3ca74baf.png"></p>
+<h5 id="3-4-7-3-创建相应⽬录"><a href="#3-4-7-3-创建相应⽬录" class="headerlink" title="3.4.7.3 创建相应⽬录"></a>3.4.7.3 创建相应⽬录</h5><p>创建⽬录是为了配置的时候知道谁与谁对应。其实可以不创建，Hadoop会⾃动创建。<br>创建以下目录，以备后用<br><img src="https://pic.downk.cc/item/5e2e67e52fb38b8c3ca74bb1.png"></p>
+<h5 id="3-4-7-4-修改配置⽂件"><a href="#3-4-7-4-修改配置⽂件" class="headerlink" title="3.4.7.4 修改配置⽂件"></a>3.4.7.4 修改配置⽂件</h5><p>在Hadoop中有以下配置⽂件需要做修改</p>
+<h6 id="⼏个脚本的配置"><a href="#⼏个脚本的配置" class="headerlink" title="⼏个脚本的配置"></a>⼏个脚本的配置</h6><p>修改JAVA_HOME为以下内容，否则容易出现Hadoop无法启动问题<br><img src="https://pic.downk.cc/item/5e2e6a012fb38b8c3ca77294.png"><br><img src="https://pic.downk.cc/item/5e2e6a012fb38b8c3ca77296.png"><br>修改JAVA_HOME为以下内容<br><img src="https://pic.downk.cc/item/5e2e6a1c2fb38b8c3ca7749b.png"><br><img src="https://pic.downk.cc/item/5e2e6a1c2fb38b8c3ca7749d.png"><br>修改JAVA_HOME为以下内容<br><img src="https://pic.downk.cc/item/5e2e6a262fb38b8c3ca7759c.png"><br><img src="https://pic.downk.cc/item/5e2e6a262fb38b8c3ca7759e.png"></p>
+<h6 id="核心配置文件"><a href="#核心配置文件" class="headerlink" title="核心配置文件"></a>核心配置文件</h6><p><img src="https://pic.downk.cc/item/5e2e6b582fb38b8c3ca78ceb.png"></p>
+<pre><code>在&lt;configuration&gt;&lt;/configuration&gt;中间添加一下内容
+&lt;property&gt; 
+        &lt;name&gt;fs.defaultFS&lt;/name&gt;&lt;!--定义Hadoop HDFS中 namenode 的URI和端口【必须配 置】--&gt; 
+        &lt;value&gt;hdfs://master:9000&lt;/value&gt;
+&lt;/property&gt;
+&lt;property&gt; 
+        &lt;name&gt;hadoop.tmp.dir&lt;/name&gt;&lt;!--Hadoop运行时临时的存储目录【必须配置】--&gt; 
+        &lt;value&gt;file:/opt/SoftWare/Hadoop/hadoop-2.7.7/tmp&lt;/value&gt;
+&lt;/property&gt;
+&lt;property&gt; 
+        &lt;name&gt;io.file.buffer.size&lt;/name&gt;&lt;!--用作序列化文件处理时读写buffer的大小【可以不 配置】--&gt; 
+        &lt;value&gt;131702&lt;/value&gt;
+&lt;/property&gt; &lt;!--以下两个配置暂时用不上【可以不必配置】--&gt;
+&lt;property&gt; 
+        &lt;name&gt;hadoop.proxyuser.hadoopuser.hosts&lt;/name&gt; 
+        &lt;value&gt;*&lt;/value&gt;
+&lt;/property&gt;
+i&lt;property&gt; 
+        &lt;name&gt;hadoop.proxyuser.hadoopuser.groups&lt;/name&gt; 
+        &lt;value&gt;*&lt;/value&gt;
+&lt;/property&gt;</code></pre>
+<p><img src="https://pic.downk.cc/item/5e2e6d132fb38b8c3ca7abe4.png"></p>
+<h6 id="HDFS-配置⽂件"><a href="#HDFS-配置⽂件" class="headerlink" title="HDFS 配置⽂件"></a>HDFS 配置⽂件</h6><pre><code>&lt;!--在&lt;configuration&gt;&lt;/configuration&gt;中间添加一下内容--&gt;
+&lt;property&gt;&lt;!--namenode节点元数据存储目录【必须配置】--&gt;  
+    &lt;name&gt;dfs.namenode.name.dir&lt;/name&gt;
+    &lt;value&gt;file:/opt/SoftWare/Hadoop/hadoop-2.7.7/dfs/name&lt;/value&gt; 
+&lt;/property&gt; 
+&lt;property&gt;&lt;!--datanode 真正的数据存储目录【必须配置】--&gt;
+    &lt;name&gt;dfs.datanode.data.dir&lt;/name&gt;  
+    &lt;value&gt;file:/opt/SoftWare/Hadoop/hadoop-2.7.7/dfs/data&lt;/value&gt; 
+&lt;/property&gt;
+&lt;property&gt;&lt;!--指定DataNode存储block的副本数量,不大于DataNode的个数就行，默认为3【必 须】--&gt;
+    &lt;name&gt;dfs.replication&lt;/name&gt; 
+    &lt;value&gt;2&lt;/value&gt; 
+&lt;/property&gt;
+&lt;property&gt;&lt;!--指定SecondaryNamenode的工作目录【必须配置】--&gt;
+    &lt;name&gt;dfs.namenode.checkpoint.dir&lt;/name&gt;
+    &lt;value&gt;file:/opt/SoftWare/Hadoop/hadoop-2.7.7/dfs/namesecondary&lt;/value&gt; 
+&lt;/property&gt;
+&lt;property&gt;&lt;!--指定SecondaryNamenode的http协议访问地址【必须配置】--&gt; 
+    &lt;name&gt;dfs.namenode.secondary.http-address&lt;/name&gt;
+    &lt;value&gt;node02:50090&lt;/value&gt; 
+&lt;/property&gt;
+&lt;property&gt;&lt;!--指定SecondaryNamenode的https协议访问地址：【可以不进行配置】--&gt;
+    &lt;name&gt;dfs.namenode.secondary.https-address&lt;/name&gt;
+    &lt;value&gt;node02:50091&lt;/value&gt; 
+&lt;/property&gt;
+&lt;property&gt;&lt;!--必须设置为true，否则就不能通过web访问hdfs上的文件信息【必须配置】--&gt;
+    &lt;name&gt;dfs.webhdfs.enabled&lt;/name&gt;
+    &lt;value&gt;true&lt;/value&gt; 
+&lt;/property&gt;</code></pre>
+<p><img src="https://pic.downk.cc/item/5e2e6fad2fb38b8c3ca7e1a2.png"></p>
+<h6 id="Yarn-配置⽂件"><a href="#Yarn-配置⽂件" class="headerlink" title="Yarn 配置⽂件"></a>Yarn 配置⽂件</h6><pre><code>&lt;property&gt;  &lt;!--Reducer获取数据的方式【必须配置】--&gt; 
+    &lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt; 
+    &lt;value&gt;mapreduce_shuffle&lt;/value&gt; 
+&lt;/property&gt; 
+&lt;property&gt;  &lt;!--Reducer获取数据的方式中shuffle过程对应的类，可以自定义，【可以不配置】，这是默认 的--&gt; 
+    &lt;name&gt;yarn.nodemanager.aux-services.mapreduce.shuffle.class&lt;/name&gt;
+    &lt;value&gt;org.apache.hadoop.mapred.ShuffleHandler&lt;/value&gt;
+&lt;/property&gt; 
+&lt;property&gt; &lt;!--ResourceManager主机名，配置后其他的address就不用配置了，除非需要自定义端口【必 须配置】--&gt; 
+    &lt;name&gt;yarn.resourcemanager.hostname&lt;/name&gt; 
+    &lt;value&gt;master&lt;/value&gt; 
+&lt;/property&gt; 
+&lt;property&gt;&lt;!--NodeManager节点的内存大小，单位为MB【必须配置】--&gt; 
+    &lt;name&gt;yarn.nodemanager.resource.memory-mb&lt;/name&gt; 
+    &lt;value&gt;2048&lt;/value&gt; 
+&lt;/property&gt; 
+&lt;!-- 日志聚集功能【暂时不需要配置】 --&gt; &lt;property&gt;
+    &lt;name&gt;yarn.log-aggregation-enable&lt;/name&gt; 
+    &lt;value&gt;true&lt;/value&gt; 
+&lt;/property&gt; 
+&lt;!-- 日志保留时间设置7天 【暂时不需要配置】--&gt; &lt;property&gt; 
+    &lt;name&gt;yarn.log-aggregation.retain-seconds&lt;/name&gt; 
+    &lt;value&gt;604800&lt;/value&gt; 
+&lt;/property&gt;</code></pre>
+<p><img src="https://pic.downk.cc/item/5e2e9b4f2fb38b8c3cab6912.png"></p>
+<h6 id="MapReduce-配置⽂件"><a href="#MapReduce-配置⽂件" class="headerlink" title="MapReduce 配置⽂件"></a>MapReduce 配置⽂件</h6><p>但是这个⽂件并不存在，先复制再打开<br>①使用cp命令复制一份出来，不要自己创建<br><img src="https://pic.downk.cc/item/5e2e9cd42fb38b8c3cab8c38.png"><br><img src="https://pic.downk.cc/item/5e2e9cd42fb38b8c3cab8c3a.png"></p>
+<pre><code>&lt;property&gt;&lt;!--使用yarn运行mapreduce程序【必须配置】--&gt; 
+    &lt;name&gt;mapreduce.framework.name&lt;/name&gt; 
+    &lt;value&gt;yarn&lt;/value&gt; 
+&lt;/property&gt; &lt;!--配置历史服务器【暂时不需要配置】--&gt; &lt;property&gt;&lt;!--MapReduce JobHistory Server地址--&gt;
+    &lt;name&gt;mapreduce.jobhistory.address&lt;/name&gt; 
+    &lt;value&gt;master:10020&lt;/value&gt; 
+&lt;/property&gt; 
+&lt;property&gt;&lt;!--MapReduce JobHistory Server Web界面地址--&gt; 
+    &lt;name&gt;mapreduce.jobhistory.webapp.address&lt;/name&gt; 
+    &lt;value&gt;master:19888&lt;/value&gt; 
+&lt;/property&gt;</code></pre>
+<p><img src="https://pic.downk.cc/item/5e2e9cd42fb38b8c3cab8c3c.png"></p>
+<h6 id="slaves⽂件"><a href="#slaves⽂件" class="headerlink" title="slaves⽂件"></a>slaves⽂件</h6><p>添加以下内容:这里添加的是所有的数据节点，注意删除原来的localhost【必须配置】 </p>
+<p><img src="https://pic.downk.cc/item/5e2ea2532fb38b8c3cabf96a.png"></p>
+<h5 id="3-4-7-5-⽂件分发"><a href="#3-4-7-5-⽂件分发" class="headerlink" title="3.4.7.5 ⽂件分发"></a>3.4.7.5 ⽂件分发</h5><p>将slave1节点上的SoftWare⽬录远程拷⻉到其他节点<br><img src="https://pic.downk.cc/item/5e2ea6e72fb38b8c3cac50ea.png"><br><img src="https://pic.downk.cc/item/5e2ea6e72fb38b8c3cac50ec.png"></p>
+<h5 id="3-4-7-6-设置环境变量"><a href="#3-4-7-6-设置环境变量" class="headerlink" title="3.4.7.6 设置环境变量"></a>3.4.7.6 设置环境变量</h5><h6 id="①各节点均编辑-etc-profile文件"><a href="#①各节点均编辑-etc-profile文件" class="headerlink" title="①各节点均编辑/etc/profile文件"></a>①各节点均编辑/etc/profile文件</h6><p><img src="https://pic.downk.cc/item/5e2ea8452fb38b8c3cac6b76.png"></p>
+<h6 id="②-添加以下内容"><a href="#②-添加以下内容" class="headerlink" title="②#添加以下内容"></a>②#添加以下内容</h6><pre><code>export HADOOP_HOME=/opt/SoftWare/Hadoop/hadoop-2.7.7   
+export HADOOP_MAPRED_HOME=$HADOOP_HOME    
+export HADOOP_COMMON_HOME=$HADOOP_HOME    
+export HADOOP_HDFS_HOME=$HADOOP_HOME    
+export YARN_HOME=$HADOOP_HOME    
+export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native    
+export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin </code></pre>
+<h5 id="③使设置立即生效"><a href="#③使设置立即生效" class="headerlink" title="③使设置立即生效"></a>③使设置立即生效</h5><p><img src="https://pic.downk.cc/item/5e2ea8452fb38b8c3cac6b72.png"></p>
+<h5 id="④检查hadoop版本"><a href="#④检查hadoop版本" class="headerlink" title="④检查hadoop版本"></a>④检查hadoop版本</h5><p><img src="https://pic.downk.cc/item/5e2ea8452fb38b8c3cac6b74.png"></p>
+<h5 id="3-4-7-7-格式化Hadoop"><a href="#3-4-7-7-格式化Hadoop" class="headerlink" title="3.4.7.7 格式化Hadoop"></a>3.4.7.7 格式化Hadoop</h5><p><img src="https://pic.downk.cc/item/5e2eb2552fb38b8c3cad2eb4.png"></p>
+<h6 id="运行结果如下"><a href="#运行结果如下" class="headerlink" title="运行结果如下"></a>运行结果如下</h6><p><img src="https://pic.downk.cc/item/5e2eb29d2fb38b8c3cad3436.png"><br><img src="https://pic.downk.cc/item/5e2eb29d2fb38b8c3cad3438.png"><br><img src="https://pic.downk.cc/item/5e2eb29d2fb38b8c3cad3434.png"></p>
+<h5 id="3-4-7-8-启动Hadoop"><a href="#3-4-7-8-启动Hadoop" class="headerlink" title="3.4.7.8 启动Hadoop"></a>3.4.7.8 启动Hadoop</h5><p>在指定节点上使用以下命令以hdfs启动HDFSNameNode和Datanode  </p>
+<h6 id="①启动HDFS"><a href="#①启动HDFS" class="headerlink" title="①启动HDFS"></a>①启动HDFS</h6><p>在master上启动：sbin/start-dfs.sh(应为NameNode在此机子上)<br><img src="https://pic.downk.cc/item/5e2eb4f32fb38b8c3cad61d1.png"><br><img src="https://pic.downk.cc/item/5e2eb4f32fb38b8c3cad61d4.png"><br><img src="https://pic.downk.cc/item/5e2eb4f32fb38b8c3cad61cb.png"><br><img src="https://pic.downk.cc/item/5e2eb4f32fb38b8c3cad61ce.png"></p>
+<h6 id="②启动YARN"><a href="#②启动YARN" class="headerlink" title="②启动YARN"></a>②启动YARN</h6><p>在master上启动：sbin/start-yarn.sh(应为ResourceManager在此机子上)<br><img src="https://pic.downk.cc/item/5e2eb6192fb38b8c3cad7dc0.png"><br><img src="https://pic.downk.cc/item/5e2eb6192fb38b8c3cad7dc2.png"><br><img src="https://pic.downk.cc/item/5e2eb6b52fb38b8c3cad8b11.png"><br><img src="https://pic.downk.cc/item/5e2eb6b52fb38b8c3cad8b13.png"><br><strong>注意:NameNode和ResourceManger如果不是同一台机器,不能在NameNode上启动YARN,应该在ResouceManager所在的机器上启动YARN</strong></p>
+<p>通过<a href="http://192.168.114.101:50070地址访问出现以下界⾯说明配置成功">http://192.168.114.101:50070地址访问出现以下界⾯说明配置成功</a><br><img src="https://pic.downk.cc/item/5e2eb87b2fb38b8c3cadaf11.png"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Hadoop环境搭建（1）</title>
+    <url>/2019/09/15/hello-world/</url>
+    <content><![CDATA[<h2 id="三-Hadoop环境搭建"><a href="#三-Hadoop环境搭建" class="headerlink" title="三.Hadoop环境搭建"></a>三.Hadoop环境搭建</h2><p>Hadoop需要运⾏在Linux操作系统上，当前也可以在Windows上安装运⾏。如果在Windows上运⾏就好⽐开个⼩轿⻋去⽥地⾥耕地。鉴于⼤家已经学习过Linux操作系统，因此⾥对其不再过多赘述，直 接进⾏Linux的安装。  </p>
+<h5 id="⼏个进程说明"><a href="#⼏个进程说明" class="headerlink" title="⼏个进程说明"></a>⼏个进程说明</h5><pre><code>1.namenode
+存储⽂件的元数据，如⽂件名，⽂件⽬录结构，⽂件属性（创建时间、副本数、⽂件权限），以及每个⽂件的块列表和块所在的DataNode的列表信息等。  
+2.datanode  
+在本地⽂件系统存储⽂件块数据，以及块数据的校验和。说⽩了，就是专⻔存真正的数据的
+3.secondaryNamenode  
+他不是NN的备份(但可以做备份),它的主要工作是帮助NN合并edits,fsimage,减少NN启动时间在紧急情况下,可以恢复NameNode SNN执行合并时机    根据配置文件设置的时间间隔fs.checkoint.period默认3600秒    根据配置文件设置editslog大小fs.checkpoint.size规定edits文件的大值默认是64MB
+4.resourceManager
+5.nodeManager</code></pre>
+<h5 id="两种节点"><a href="#两种节点" class="headerlink" title="两种节点"></a>两种节点</h5><pre><code>master
+主节点
+salve
+从节点【数据节点】</code></pre>
+<h3 id="3-1-VMware安装"><a href="#3-1-VMware安装" class="headerlink" title="3.1.VMware安装"></a>3.1.VMware安装</h3><p>VMwareWorkstation，中⽂名“威睿⼯作站”，是⼀款功能强⼤的桌⾯虚拟计算机软件，提供⽤⼾可 在单⼀的桌⾯上同时运⾏不同的操作系统，和进⾏开发、测试、部署新的应⽤程序的最佳解决⽅案。</p>
+<h4 id="3-1-1-VM下载"><a href="#3-1-1-VM下载" class="headerlink" title="3.1.1 VM下载"></a>3.1.1 VM下载</h4><p><a href="https://download3.vmware.com/software/wkst/file/VMware-workstation-full-15.1.0-13591040.exe">https://download3.vmware.com/software/wkst/file/VMware-workstation-full-15.1.0-13591040.exe</a>  </p>
+<h4 id="3-1-2-VM序列号"><a href="#3-1-2-VM序列号" class="headerlink" title="3.1.2 VM序列号"></a>3.1.2 VM序列号</h4><p>FC7D0-D1YDL-M8DXZ-CYPZE-P2AY6</p>
+<h4 id="3-1-3-VM安装"><a href="#3-1-3-VM安装" class="headerlink" title="3.1.3 VM安装"></a>3.1.3 VM安装</h4><p>略</p>
+<h3 id="3-2-CentOS7下载与安装"><a href="#3-2-CentOS7下载与安装" class="headerlink" title="3.2 CentOS7下载与安装"></a>3.2 CentOS7下载与安装</h3><h4 id="3-2-1-CentOS的下载"><a href="#3-2-1-CentOS的下载" class="headerlink" title="3.2.1 CentOS的下载"></a>3.2.1 CentOS的下载</h4><p><a href="https://wiki.centos.org/Download">https://wiki.centos.org/Download</a>  </p>
+<h4 id="3-2-2-CentOS安装"><a href="#3-2-2-CentOS安装" class="headerlink" title="3.2.2 CentOS安装"></a>3.2.2 CentOS安装</h4><h3 id="3-3-Hadoop运⾏环境"><a href="#3-3-Hadoop运⾏环境" class="headerlink" title="3.3 Hadoop运⾏环境"></a>3.3 Hadoop运⾏环境</h3><p>Hadoop运⾏环境有三种模式：本地模式，伪分布模式，完全分布式模式</p>
+<h5 id="本地模式（Standalone-Mode）"><a href="#本地模式（Standalone-Mode）" class="headerlink" title="本地模式（Standalone Mode）"></a>本地模式（Standalone Mode）</h5><h6 id="默认情况下，Hadoop即处于该模式，⽤于开发和调式。"><a href="#默认情况下，Hadoop即处于该模式，⽤于开发和调式。" class="headerlink" title="默认情况下，Hadoop即处于该模式，⽤于开发和调式。"></a>默认情况下，Hadoop即处于该模式，⽤于开发和调式。</h6><pre><code>不对配置⽂件进⾏修改。   
+使⽤本地⽂件系统，⽽不是分布式⽂件系统。    
+Hadoop不会启动NameNode、DataNode、SecondaryNameNode、ResourceManager、NodeManager等守护进程，Map()和Reduce()任务作为同⼀个进程的不同部分来执⾏的。   
+⽤于对MapReduce程序的逻辑进⾏调试，确保程序的正确</code></pre>
+<h5 id="伪分布模式（Pseudo-Distributed-Mode）"><a href="#伪分布模式（Pseudo-Distributed-Mode）" class="headerlink" title="伪分布模式（Pseudo-Distributed Mode）"></a>伪分布模式（Pseudo-Distributed Mode）</h5><h6 id="Hadoop的守护进程运⾏在本机机器，模拟⼀个⼩规模的集群"><a href="#Hadoop的守护进程运⾏在本机机器，模拟⼀个⼩规模的集群" class="headerlink" title="Hadoop的守护进程运⾏在本机机器，模拟⼀个⼩规模的集群"></a>Hadoop的守护进程运⾏在本机机器，模拟⼀个⼩规模的集群</h6><pre><code>在⼀台主机模拟⼀个⼩规模的集群，在这种模式下Hadoop使⽤的是分布式⽂件系统，⼀般⽤于程序调试与测试。也可以说伪分布式是完全分布式的⼀个特例。  
+在这种模式下，Hadoop使⽤的是分布式⽂件系统，各个Job由Manager来管理独⽴进程。在单机模式之上增加了代码调试功能，允许检查内存使⽤情况，HDFS输⼊输出，以及守护进程交互。  
+Hadoop启动NameNode、DataNode、SecondaryNameNode、ResourceManager、NodeManager，些守护进程都在同⼀台机器上运⾏，是相互独⽴的Java进程。   需要修改配置⽂件：core-site.xml、hdfs-site.xml、mapred-site.xml、yarn-site.xml。
+格式化⽂件系统</code></pre>
+<h5 id="完全分布式（Cluster-Mode）"><a href="#完全分布式（Cluster-Mode）" class="headerlink" title="完全分布式（Cluster Mode）"></a>完全分布式（Cluster Mode）</h5><h6 id="Hadoop的运⾏在由多台主机搭建的集群上，是真正的⽣产环境。"><a href="#Hadoop的运⾏在由多台主机搭建的集群上，是真正的⽣产环境。" class="headerlink" title="Hadoop的运⾏在由多台主机搭建的集群上，是真正的⽣产环境。"></a>Hadoop的运⾏在由多台主机搭建的集群上，是真正的⽣产环境。</h6><pre><code>在这种模式下，Hadoop在所有的主机上安装JDK、Hadoop、Zookeeper等软件，组成相互连通 的⽹络。  
+主机间设置SSH免密码登录，把各从节点⽣成的公钥添加到主节点的信任列表中。  
+需要修改配置⽂件：core-site.xml、hdfs-site.xml、mapred-site.xml、yarn-site.xml。配置⻅下表
+格式化⽂件系统</code></pre>
+<p><img src="https://pic.downk.cc/item/5e2d83922fb38b8c3c965d66.png"></p>
+<h4 id="3-4-1-集群规划"><a href="#3-4-1-集群规划" class="headerlink" title="3.4.1 集群规划"></a>3.4.1 集群规划</h4><p><img src="https://pic.downk.cc/item/5e2d83ef2fb38b8c3c9664d8.png"></p>
+<h4 id="3-4-2-虚拟机安装"><a href="#3-4-2-虚拟机安装" class="headerlink" title="3.4.2 虚拟机安装"></a>3.4.2 虚拟机安装</h4><p> 请参考3.1 VMware安装</p>
+<h4 id="3-4-3-CentOS安装"><a href="#3-4-3-CentOS安装" class="headerlink" title="3.4.3 CentOS安装"></a>3.4.3 CentOS安装</h4><p>请参考 3.2 CentOS7 下载与安装、</p>
+<h4 id="3-4-4-基本⼯具安装"><a href="#3-4-4-基本⼯具安装" class="headerlink" title="3.4.4 基本⼯具安装"></a>3.4.4 基本⼯具安装</h4><p>由于使⽤的是最⼩化安装，因此⾥需要安装不少软件才能进⾏后续操作</p>
+<h5 id="3-4-4-1-安装Xshell"><a href="#3-4-4-1-安装Xshell" class="headerlink" title="3.4.4.1 安装Xshell"></a>3.4.4.1 安装Xshell</h5><p>在Windows上安装Xshell便于连接Linux系统  </p>
+<h6 id="Xshell的下载"><a href="#Xshell的下载" class="headerlink" title="Xshell的下载"></a>Xshell的下载</h6><p> <a href="https://www.netsarang.com/zh/xshell-plus-download/">https://www.netsarang.com/zh/xshell-plus-download/</a><br>  填写相应信息，注意邮箱必须准确 Xshell官⽅下载评估版，然后把下载地址的版本号后⾯加个r（即.exe前⾯加个r），即是注册版本。</p>
+<h5 id="3-4-4-2-openssh安装，便于远程上传⽂"><a href="#3-4-4-2-openssh安装，便于远程上传⽂" class="headerlink" title="3.4.4.2 openssh安装，便于远程上传⽂"></a>3.4.4.2 openssh安装，便于远程上传⽂</h5><p>每台电脑都需要执⾏此操作<br><img src="https://pic.downk.cc/item/5e2d858e2fb38b8c3c968ce6.png"></p>
+<h5 id="3-4-4-3-同步时间⼯具"><a href="#3-4-4-3-同步时间⼯具" class="headerlink" title="3.4.4.3 同步时间⼯具"></a>3.4.4.3 同步时间⼯具</h5><p>每台电脑都需要执⾏此操作<br>①安装ntpdate工具<br><img src="https://pic.downk.cc/item/5e2d86882fb38b8c3c96a1e1.png"><br>②设置与网络时间同步<br><img src="https://pic.downk.cc/item/5e2d86882fb38b8c3c96a1e4.png"><br>③系统时间写入硬件时间<br><img src="https://pic.downk.cc/item/5e2d86882fb38b8c3c96a1e6.png"></p>
+<h5 id="3-4-4-4-⽂件上传-rz-下载-sz-⼯具"><a href="#3-4-4-4-⽂件上传-rz-下载-sz-⼯具" class="headerlink" title="3.4.4.4 ⽂件上传(rz)下载(sz)⼯具"></a>3.4.4.4 ⽂件上传(rz)下载(sz)⼯具</h5><p>可以在Xshell⼯具中通过rz调出上传⽂件的窗⼝进⾏⽂件上传，也可以通过sz⽂件名下载某⼀个⽂件。<br>不安装也可以<br><img src="https://pic.downk.cc/item/5e2d87012fb38b8c3c96ab67.png"></p>
+<h5 id="3-4-4-5-安装⽹络下载⼯具wget"><a href="#3-4-4-5-安装⽹络下载⼯具wget" class="headerlink" title="3.4.4.5 安装⽹络下载⼯具wget"></a>3.4.4.5 安装⽹络下载⼯具wget</h5><p>其中⼀台安装即可<br><img src="https://pic.downk.cc/item/5e2d87b62fb38b8c3c96ba5a.png"></p>
+<h5 id="3-4-4-6-关闭防⽕墙"><a href="#3-4-4-6-关闭防⽕墙" class="headerlink" title="3.4.4.6 关闭防⽕墙"></a>3.4.4.6 关闭防⽕墙</h5><p>每台均需要执⾏此操作<br>①查看防火墙开启状态<br><img src="https://pic.downk.cc/item/5e2d8b2c2fb38b8c3c9701b4.png"><br>②关闭防火墙<br><img src="https://pic.downk.cc/item/5e2d8b2c2fb38b8c3c9701b6.png"><br>③禁止开机启动防火墙<br><img src="https://pic.downk.cc/item/5e2d8b2c2fb38b8c3c9701b8.png"><br>④开启防火墙<br><img src="https://pic.downk.cc/item/5e2d8b2c2fb38b8c3c9701ba.png"><br>⑤设置开机启动防火墙<br><img src="https://pic.downk.cc/item/5e2d8b2c2fb38b8c3c9701b2.png"><br>⑥重启防火墙<br><img src="https://pic.downk.cc/item/5e2d8b5a2fb38b8c3c970610.png"></p>
+<h4 id="3-4-5-配置SSH免密码登录"><a href="#3-4-5-配置SSH免密码登录" class="headerlink" title="3.4.5 配置SSH免密码登录"></a>3.4.5 配置SSH免密码登录</h4><p>配置免密码登录的⽬的是为了能够让主机之间相互信任，不需要密码即可访问。  </p>
+<h5 id="3-4-5-1-修改hosts⽂件，添加以下内容，三台主机均执⾏此操作"><a href="#3-4-5-1-修改hosts⽂件，添加以下内容，三台主机均执⾏此操作" class="headerlink" title="3.4.5.1 修改hosts⽂件，添加以下内容，三台主机均执⾏此操作"></a>3.4.5.1 修改hosts⽂件，添加以下内容，三台主机均执⾏此操作</h5><p><img src="https://pic.downk.cc/item/5e2d8c322fb38b8c3c971726.png"><br><img src="https://pic.downk.cc/item/5e2d8c322fb38b8c3c971729.png"></p>
+<h5 id="3-4-5-2-配置SSH"><a href="#3-4-5-2-配置SSH" class="headerlink" title="3.4.5.2 配置SSH"></a>3.4.5.2 配置SSH</h5><p>①输入以下命令，一路回车，用以产生公钥和秘钥<br><img src="https://pic.downk.cc/item/5e2e49b92fb38b8c3ca50acb.png"><br>②每台机器均进入~/.ssh 目录进行操作<br><img src="https://pic.downk.cc/item/5e2e49b92fb38b8c3ca50acd.png"><br>③将每台机器上的id_rsa.pub公钥内容复制到authorized_keys文件中<br><img src="https://pic.downk.cc/item/5e2e49b92fb38b8c3ca50acf.png"><br>④.将公钥拷贝到要免密登录的目标机器上<br>ssh-copy-id master<br><img src="https://pic.downk.cc/item/5e2e58fb2fb38b8c3ca62eda.png"><br>ssh-copy-id slave1<br><img src="https://pic.downk.cc/item/5e2e58fb2fb38b8c3ca62edc.png"><br>ssh-copy-id slave2<br><img src="https://pic.downk.cc/item/5e2e58fb2fb38b8c3ca62ed6.png"><br>//注意3台都需要配置免密登录,每一个用户也都得配置一遍<br>查看slave2上的authorized_keys文件内容，类似如下即可<br><img src="https://pic.downk.cc/item/5e2e58fb2fb38b8c3ca62ed8.png"><br><img src="https://pic.downk.cc/item/5e2e599d2fb38b8c3ca63ae7.png"></p>
+<h4 id="3-4-6-安装Java环境"><a href="#3-4-6-安装Java环境" class="headerlink" title="3.4.6 安装Java环境"></a>3.4.6 安装Java环境</h4><h5 id="3-4-6-1-JDK下载"><a href="#3-4-6-1-JDK下载" class="headerlink" title="3.4.6.1 JDK下载"></a>3.4.6.1 JDK下载</h5><p><a href="https://www.oracle.com/technetwork/java/javase/archive-139210.html">https://www.oracle.com/technetwork/java/javase/archive-139210.html</a><br><img src="https://pic.downk.cc/item/5e2e5a202fb38b8c3ca644ef.png"></p>
+<h5 id="3-4-6-2-原JDK卸载"><a href="#3-4-6-2-原JDK卸载" class="headerlink" title="3.4.6.2 原JDK卸载"></a>3.4.6.2 原JDK卸载</h5><p>如果CentOS中已经安装的有JDK，则需要先卸载当前JDK，重新安装新的JDK。其实不卸载也可以正常使⽤。如果想卸载，就看下⾯的代码即可。<br>①查询当前所有安装的jdk版本<br>②如果什么都没有展示说明没有已安装的jdk，则无需卸载，如果出现类似以下jdk，则卸载之<br><img src="https://pic.downk.cc/item/5e2e5b1c2fb38b8c3ca6592e.png"><br>③卸载jdk，使用下面的方法卸载即可<br><img src="https://pic.downk.cc/item/5e2e5b1c2fb38b8c3ca65930.png"><br>④再次查询当前所有安装的jdk版本</p>
+<h5 id="3-4-6-3-安装JDK"><a href="#3-4-6-3-安装JDK" class="headerlink" title="3.4.6.3 安装JDK"></a>3.4.6.3 安装JDK</h5><h6 id="①在slave1主节点上创建指定目录"><a href="#①在slave1主节点上创建指定目录" class="headerlink" title="①在slave1主节点上创建指定目录"></a>①在slave1主节点上创建指定目录</h6><h6 id="②进入到Java目录"><a href="#②进入到Java目录" class="headerlink" title="②进入到Java目录"></a>②进入到Java目录</h6><h6 id="③使用rz命令从windows主机上传jdk压缩包到slave1"><a href="#③使用rz命令从windows主机上传jdk压缩包到slave1" class="headerlink" title="③使用rz命令从windows主机上传jdk压缩包到slave1"></a>③使用rz命令从windows主机上传jdk压缩包到slave1</h6><p><img src="https://pic.downk.cc/item/5e2e5e632fb38b8c3ca69947.png"></p>
+<h6 id="④解压到当前目录"><a href="#④解压到当前目录" class="headerlink" title="④解压到当前目录"></a>④解压到当前目录</h6><p><img src="https://pic.downk.cc/item/5e2e5e632fb38b8c3ca69949.png"></p>
+<h6 id="⑤配置环境变量"><a href="#⑤配置环境变量" class="headerlink" title="⑤配置环境变量"></a>⑤配置环境变量</h6><p><img src="https://pic.downk.cc/item/5e2e5e632fb38b8c3ca6994c.png"></p>
+<h6 id="⑥在该文件后面追加一下内容"><a href="#⑥在该文件后面追加一下内容" class="headerlink" title="⑥在该文件后面追加一下内容"></a>⑥在该文件后面追加一下内容</h6><pre><code>export JAVA_HOME=/opt/SoftWare/Java/jdk1.8.0_25
+export JRE_HOME=/opt/SoftWare/Java/jdk1.8.0_25/jre 
+export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib/rt.jar 
+export PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin</code></pre>
+<p><img src="https://pic.downk.cc/item/5e2e5e632fb38b8c3ca6994e.png"></p>
+<h6 id="⑦使刚才的设置生效"><a href="#⑦使刚才的设置生效" class="headerlink" title="⑦使刚才的设置生效"></a>⑦使刚才的设置生效</h6><p><img src="https://pic.downk.cc/item/5e2e5e932fb38b8c3ca69e24.png"></p>
+<h6 id="⑧检测是否配置成"><a href="#⑧检测是否配置成" class="headerlink" title="⑧检测是否配置成"></a>⑧检测是否配置成</h6><p><img src="https://pic.downk.cc/item/5e2e5e932fb38b8c3ca69e26.png"></p>
+<h6 id="⑨其他主机同样的操作进行即可https-hexo-io-docs-one-command-deployment-html"><a href="#⑨其他主机同样的操作进行即可https-hexo-io-docs-one-command-deployment-html" class="headerlink" title="⑨其他主机同样的操作进行即可https://hexo.io/docs/one-command-deployment.html)"></a>⑨其他主机同样的操作进行即可<a href="https://hexo.io/docs/one-command-deployment.html">https://hexo.io/docs/one-command-deployment.html</a>)</h6>]]></content>
+      <categories>
+        <category>hadoop</category>
+        <category>集群搭建</category>
+      </categories>
+      <tags>
+        <tag>hadoop</tag>
+        <tag>集群搭建</tag>
+      </tags>
+  </entry>
+</search>
